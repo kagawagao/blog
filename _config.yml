@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: We love, we do
+title: We love, and we do
 subtitle:
-description:
+description: All the things you had done is your love.
 author: kagawagao
 language: zh-Hans
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://kagawagao.github.io
-root: /
+url: http://kagawagao.github.io/blog
+root: /blog/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
   lang: zh-Hans
@@ -40,12 +40,12 @@ relative_link: false
 future: true
 highlight:
   enable: true
-  line_number: true
+  line_number: false
   auto_detect: false
   tab_replace: 2
 
 # Category & Tag
-default_category: uncategorized
+default_category: 技术
 category_map:
 tag_map:
 
@@ -70,7 +70,8 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:kagawagao/kagawagao.github.io.git
+  repo: git@github.com:kagawagao/blog.git
+  branch: gh-pages
 
 # =============================================================================
 # NexT Theme configuration
