@@ -14,7 +14,7 @@ keywords: "Hexo, NexT"
 rss:
 
 # Specify the date when the site was setup
-#since: 2015
+since: 2016
 
 
 
@@ -56,9 +56,9 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
-#scheme: Mist
-#scheme: Pisces
+# scheme: Muse
+scheme: Mist
+# scheme: Pisces
 
 
 # ---------------------------------------------------------------
@@ -168,7 +168,7 @@ sidebar:
   #  - remove  Totally remove sidebar including sidebar toggler.
   display: post
   #display: always
-  #display: hide
+  # display: hide
   #display: remove
 
 
@@ -212,7 +212,7 @@ auto_excerpt:
   #description: ex. subscribe to my blog by scanning my public wechat account
 
 
-  
+
 
 # ---------------------------------------------------------------
 # Third Party Services Settings
@@ -296,15 +296,15 @@ busuanzi_count:
   # custom uv span for the whole site
   site_uv: true
   site_uv_header: <i class="fa fa-user"></i>
-  site_uv_footer: 
+  site_uv_footer:
   # custom pv span for the whole site
   site_pv: true
   site_pv_header: <i class="fa fa-eye"></i>
-  site_pv_footer: 
+  site_pv_footer:
   # custom pv span for one page only
   page_pv: true
   page_pv_header: <i class="fa fa-file-o"></i>
-  page_pv_footer: 
+  page_pv_footer:
 
 # Tencent analytics ID
 # tencent_analytics:
