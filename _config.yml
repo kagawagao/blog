@@ -107,11 +107,11 @@ google_site_verification:
 
 # Google Analytics
 # Google分析ID
-google_analytics:
+google_analytics: UA-81696369-1
 
 
 # 百度分析ID
-baidu_analytics:
+baidu_analytics: 882863bb1252e7cd7e541032244b70dd
 
 # Specify the date when the site was setup
 since: 2016
