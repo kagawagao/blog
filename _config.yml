@@ -6,7 +6,7 @@
 title: We love, and we do
 subtitle:
 description: All the things you had done is your love.
-author: kagawagao
+author: kagawa
 language: zh-Hans
 timezone:
 
@@ -17,6 +17,10 @@ root: /blog/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
   lang: zh-Hans
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
 
 # Directory
 source_dir: source
@@ -40,8 +44,8 @@ relative_link: false
 future: true
 highlight:
   enable: true
-  line_number: false
-  auto_detect: false
+  line_number: true
+  auto_detect: true
   tab_replace: 2
 
 # Category & Tag
@@ -89,10 +93,9 @@ disqus_shortname:
 # Social links
 social:
   GitHub: https://github.com/kagawagao
-  Twitter: https://twitter.com/kingsongao1221
-  Weibo: http://weibo.com/kagawagao
-  DouBan: https://www.douban.com/people/81110143
-  ZhiHu: https://www.zhihu.com/people/kingson1221
+  Twitter: https://twitter.com/kagawagao
+  微博: http://weibo.com/kagawagao
+  知乎: https://www.zhihu.com/people/kagawagao
 
 
 # Creative Commons 4.0 International License.
@@ -102,7 +105,7 @@ creative_commons: by-nc
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
-google_site_verification:
+google_site_verification: InY9uB5AcU-qvYvD3iW7iXSk3k1sHsPdeWVH049hz6s
 
 
 # Google Analytics
@@ -117,7 +120,7 @@ baidu_analytics: 882863bb1252e7cd7e541032244b70dd
 since: 2016
 
 # Swiftype Search Key
-swiftype_key: zXXzFDDySYe795stVsAy
+# swiftype_key: zXXzFDDySYe795stVsAy
 # =============================================================================
 # End NexT Theme configuration
 # =============================================================================

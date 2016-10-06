@@ -5,11 +5,14 @@ categories:
   -  技术
 tags:
   - 前端开发
+  - ES Next
 ---
 
 # WTF!!!
 
 ECMAScript 7 发布，竟然没有`async/await`［懵逼脸］。相较于`generator`，我更偏爱于`async/await`，我为此还将所有的`promise.then`和`generator`全改为`async/await`［再次懵逼］。
+
+<!--more-->
 
 # 什么是`async/await`?
 
