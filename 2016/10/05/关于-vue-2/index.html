@@ -243,12 +243,12 @@
 <!-- Theme Background Related-->
 
     <style>
-      body{
+      body {
         background-color: #F5F5F5;
       }
 
       /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
         background-color: #fff;
       }
     </style>
@@ -291,7 +291,7 @@
 
     <!-- Custom Head -->
     
-</head>
+<link rel="stylesheet" href="/blog/css/prism.css" type="text/css"></head>
 
 
     
@@ -339,12 +339,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#transition-与-transition-group"><span class="post-toc-number">1.</span> <span class="post-toc-text">transition 与 transition-group</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#生命周期函数之-updated"><span class="post-toc-number">2.</span> <span class="post-toc-text">生命周期函数之 updated</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#是否有必要用-Vuex"><span class="post-toc-number">3.</span> <span class="post-toc-text">是否有必要用 Vuex</span></a></li></ol>
-        <!--
-        <li class="mdl-menu__item">
-            Some Action
-        </li>
-        -->
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#transition-与-transition-group"><span class="post-toc-text">transition 与 transition-group</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#生命周期函数之-updated"><span class="post-toc-text">生命周期函数之 updated</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#是否有必要用-Vuex"><span class="post-toc-text">是否有必要用 Vuex</span></a></li></ol>
     </ul>
     
 
@@ -370,7 +365,7 @@
             <script type="text/ls-javascript" id="post-thumbnail-script">
     var randomNum = Math.floor(Math.random() * 19 + 1);
 
-    $('.post_thumbnail-random').attr('data-original', '' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/gallery/' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
 </script>
 
@@ -493,17 +488,86 @@
 <p>关于 <code>Vue</code> 中的过渡动画，请参考最新的<a href="http://rc.vuejs.org/guide/transitions.html" target="_blank" rel="external">文档</a>。<code>transition</code> 与 <code>transition-group</code> 大概就是依托于我们所提供的 <code>name</code> 或者 <code>class</code> 来寻找样式从而实现简单的过渡动画。在 <code>Vue@1</code>中，是通过 <code>transition</code> 指令实现的，而现在在引入<code>Virtual Dom</code> 之后，通过 <code>render function</code> 已经可以很方便的渲染组件，因此它们已成为一个内置的组件。</p>
 <p>首先关于 <code>transition</code>，其使用方法与指令式的大致相同，尽管 <code>transition</code> 是一个组件，但它不会渲染出多余的节点，它仅仅是在节点过渡时对子节点添加相应的类型从而实现过渡动画效果(<a href="https://github.com/vuejs/vue/blob/dev/src/platforms/web/runtime/components/transition.js" target="_blank" rel="external">源码</a>)。</p>
 <p>在这里所想细说的是 <code>transition-group</code> <a href="https://github.com/vuejs/vue/blob/dev/src/platforms/web/runtime/components/transition-group.js" target="_blank" rel="external">源码</a>，与 <code>ReactTransitionGroup</code> 一样，它也需要指定一个唯一的 <code>key</code>，而这个 <code>key</code> 大有用武之地。在<a href="http://rc.vuejs.org/guide/transitions.html#List-Entering-Leaving-Transitions" target="_blank" rel="external">官方实例</a>中，这个 <code>key</code> 是数组的每一个元素的值，因为数组中的每一个值是不相同的，因此在每一次重新渲染的过程中可以看到过渡动画，无论插入、删除、还是打乱顺序，都能看到变化。但是倘若我们把这个 <code>key</code> 用 <code>index</code> 来代替，则不会产生动画，因为 <code>index</code> 对于 <code>Vue</code> 在重新渲染的过程中是没有变化，除非我们插入一个值，这才会引起对应值得 <code>index</code> 发生改变，如此才会有过渡动画，但是此时的过渡动画可能并不是我们想要的。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 使用 value 为 key --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"list-demo"</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"add"</span>&gt;</span>Add<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"remove"</span>&gt;</span>Remove<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">transition-group</span> <span class="attr">name</span>=<span class="string">"list"</span> <span class="attr">tag</span>=<span class="string">"p"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item"</span> <span class="attr">class</span>=<span class="string">"list-item"</span>&gt;</span></div><div class="line">      &#123;&#123; item &#125;&#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">transition-group</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- 使用 value 为 key --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>list-demo<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>demo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>add<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Add<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>remove<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Remove<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition-group</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>list<span class="token punctuation">"</span></span> <span class="token attr-name">tag</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>p<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item in items<span class="token punctuation">"</span></span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>list-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      {{ item }}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition-group</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
 <p><img src="http://d.pr/i/vKrp+" alt="使用 `value` 为 `key`"></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 使用 index 为 key --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"list-demo"</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"add"</span>&gt;</span>Add<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"remove"</span>&gt;</span>Remove<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">transition-group</span> <span class="attr">name</span>=<span class="string">"list"</span> <span class="attr">tag</span>=<span class="string">"p"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in items"</span> <span class="attr">:key</span>=<span class="string">"index"</span> <span class="attr">class</span>=<span class="string">"list-item"</span>&gt;</span></div><div class="line">      &#123;&#123; item &#125;&#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">transition-group</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- 使用 index 为 key --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>list-demo<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>demo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>add<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Add<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>remove<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Remove<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition-group</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>list<span class="token punctuation">"</span></span> <span class="token attr-name">tag</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>p<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>(item, index) in items<span class="token punctuation">"</span></span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>index<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>list-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      {{ item }}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition-group</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
 <p><img src="http://d.pr/i/2W09+" alt="使用 `index` 为 `key`"></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#list-demo'</span>,</div><div class="line">  data: &#123;</div><div class="line">    items: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>],</div><div class="line">    nextNum: <span class="number">10</span></div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    randomIndex: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="keyword">this</span>.items.length)</div><div class="line">    &#125;,</div><div class="line">    add: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.items.splice(<span class="keyword">this</span>.randomIndex(), <span class="number">0</span>, <span class="keyword">this</span>.nextNum++)</div><div class="line">    &#125;,</div><div class="line">    remove: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.items.splice(<span class="keyword">this</span>.randomIndex(), <span class="number">1</span>)</div><div class="line">    &#125;,</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  el<span class="token punctuation">:</span> <span class="token string">'#list-demo'</span><span class="token punctuation">,</span>
+  data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    items<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    nextNum<span class="token punctuation">:</span> <span class="token number">10</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    randomIndex<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span>length<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    add<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">randomIndex</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>nextNum<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    remove<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">randomIndex</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
 <p>从以上的效果中可以明显感受到差异，因此我们在用 <code>transition-group</code> 时，应当使用渲染过程中会发生变化的值作为 <code>key</code>，这样才能使得我们所期望的过渡动画生效。</p>
 <p>而 <code>transition-group</code> 的 <code>moveClass</code> 则为当渲染节点的位置发生相对改变时保存过渡动画。</p>
 <p><img src="http://d.pr/i/xRni+" alt="`moveClass`"></p>
 <p>但是无论 <code>transition</code> 还是 <code>transition-group</code> 都只为我们提供了 <code>low-level</code> 的过渡动画，若要使用更为炫酷的动画，<code>Vue</code> 依然支持使用第三方库。</p>
 <h1 id="生命周期函数之-updated"><a href="#生命周期函数之-updated" class="headerlink" title="生命周期函数之 updated"></a>生命周期函数之 <code>updated</code></h1><p>我们知道，<code>Vue</code> 在数据发生改变之后的 <code>DOM</code> 更新是异步的，因此有了 <code>Vue.nextTick</code> 和 <code>vm.$nextTick</code> 两个 <code>API</code> 来供我们在 <code>DOM</code> 更新完成之后调用。</p>
-<p>而 <code>updated</code> 只是 <code>Virtual DOM</code> 更新完成之后的回调。我们来看<a href="https://github.com/vuejs/vue/blob/dev/src/core/instance/lifecycle.js#L106" target="_blank" rel="external">源码</a>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (vm._isMounted) &#123;</div><div class="line">  callHook(vm, <span class="string">'beforeUpdate'</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> prevEl = vm.$el</div><div class="line"><span class="keyword">const</span> prevActiveInstance = activeInstance</div><div class="line">activeInstance = vm</div><div class="line"><span class="keyword">const</span> prevVnode = vm._vnode</div><div class="line">vm._vnode = vnode</div><div class="line"><span class="keyword">if</span> (!prevVnode) &#123;</div><div class="line">  <span class="comment">// Vue.prototype.__patch__ is injected in entry points</span></div><div class="line">  <span class="comment">// based on the rendering backend used.</span></div><div class="line">  vm.$el = vm.__patch__(vm.$el, vnode, hydrating)</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  vm.$el = vm.__patch__(prevVnode, vnode)</div><div class="line">&#125;</div><div class="line">activeInstance = prevActiveInstance</div><div class="line"><span class="comment">// update __vue__ reference</span></div><div class="line"><span class="keyword">if</span> (prevEl) &#123;</div><div class="line">  prevEl.__vue__ = <span class="literal">null</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span> (vm.$el) &#123;</div><div class="line">  vm.$el.__vue__ = vm</div><div class="line">&#125;</div><div class="line"><span class="comment">// if parent is an HOC, update its $el as well</span></div><div class="line"><span class="keyword">if</span> (vm.$vnode &amp;&amp; vm.$parent &amp;&amp; vm.$vnode === vm.$parent._vnode) &#123;</div><div class="line">  vm.$parent.$el = vm.$el</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span> (vm._isMounted) &#123;</div><div class="line">  callHook(vm, <span class="string">'updated'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>而 <code>updated</code> 只是 <code>Virtual DOM</code> 更新完成之后的回调。我们来看<a href="https://github.com/vuejs/vue/blob/dev/src/core/instance/lifecycle.js#L106" target="_blank" rel="external">源码</a>：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">if</span> <span class="token punctuation">(</span>vm<span class="token punctuation">.</span>_isMounted<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">callHook</span><span class="token punctuation">(</span>vm<span class="token punctuation">,</span> <span class="token string">'beforeUpdate'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> prevEl <span class="token operator">=</span> vm<span class="token punctuation">.</span>$el
+<span class="token keyword">const</span> prevActiveInstance <span class="token operator">=</span> activeInstance
+activeInstance <span class="token operator">=</span> vm
+<span class="token keyword">const</span> prevVnode <span class="token operator">=</span> vm<span class="token punctuation">.</span>_vnode
+vm<span class="token punctuation">.</span>_vnode <span class="token operator">=</span> vnode
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>prevVnode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// Vue.prototype.__patch__ is injected in entry points</span>
+  <span class="token comment" spellcheck="true">// based on the rendering backend used.</span>
+  vm<span class="token punctuation">.</span>$el <span class="token operator">=</span> vm<span class="token punctuation">.</span><span class="token function">__patch__</span><span class="token punctuation">(</span>vm<span class="token punctuation">.</span>$el<span class="token punctuation">,</span> vnode<span class="token punctuation">,</span> hydrating<span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  vm<span class="token punctuation">.</span>$el <span class="token operator">=</span> vm<span class="token punctuation">.</span><span class="token function">__patch__</span><span class="token punctuation">(</span>prevVnode<span class="token punctuation">,</span> vnode<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+activeInstance <span class="token operator">=</span> prevActiveInstance
+<span class="token comment" spellcheck="true">// update __vue__ reference</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>prevEl<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  prevEl<span class="token punctuation">.</span>__vue__ <span class="token operator">=</span> <span class="token keyword">null</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>vm<span class="token punctuation">.</span>$el<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  vm<span class="token punctuation">.</span>$el<span class="token punctuation">.</span>__vue__ <span class="token operator">=</span> vm
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// if parent is an HOC, update its $el as well</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>vm<span class="token punctuation">.</span>$vnode <span class="token operator">&amp;&amp;</span> vm<span class="token punctuation">.</span>$parent <span class="token operator">&amp;&amp;</span> vm<span class="token punctuation">.</span>$vnode <span class="token operator">===</span> vm<span class="token punctuation">.</span>$parent<span class="token punctuation">.</span>_vnode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  vm<span class="token punctuation">.</span>$parent<span class="token punctuation">.</span>$el <span class="token operator">=</span> vm<span class="token punctuation">.</span>$el
+<span class="token punctuation">}</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>vm<span class="token punctuation">.</span>_isMounted<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">callHook</span><span class="token punctuation">(</span>vm<span class="token punctuation">,</span> <span class="token string">'updated'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>从源码中我们可以很明显的看到这里 <code>updated</code> 实际上仅仅是在 <code>VNode</code> 被 <code>patch</code> 之后调用的，并不是在 <code>DOM</code> 更新之后调用，因此在数据更新之后我们想要拿到最新的 <code>DOM</code> 节点，需要在 <code>nextTick</code> 中，而非 <code>updated</code> 中。</p>
 <h1 id="是否有必要用-Vuex"><a href="#是否有必要用-Vuex" class="headerlink" title="是否有必要用 Vuex"></a>是否有必要用 <code>Vuex</code></h1><p>记得 <code>redux</code> 作者有一句话：当你不知道什么时候该用 <code>redux</code> 的时候，那就不要用它。这句话也适用于 <code>Vuex</code>。</p>
 <p>大多数模板都提供了完整的 <code>Vue</code>、<code>Vuex</code>、<code>Vue-Router</code> 的骨架，但有的时候你需要的仅仅是 <code>Vue</code>，比如你只是要一个简单的页面，只有简单的数据处理逻辑和 <code>Ajax</code> 请求，那你大可不必将所有的东西都杂糅进去，那样反而会使得你简单的页面交互和数据处理逻辑变得更加复杂。</p>
@@ -637,6 +701,16 @@
 
     <!-- Pages  -->
     
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
 
     <!-- Article Number  -->
     
@@ -769,7 +843,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>We love, and we do
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>We love, and we do
         </div>
 
         <!-- Paradox Footer Right Section -->
@@ -809,14 +883,14 @@ It will not impact the appearance and can give developers a lot of support :)
     });
     NProgress.start();
     $('#nprogress .bar').css({
-        'background': '#FFEB3B'
+        'background': '#29B6F6'
     });
     $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #FFEB3B, 0 0 15px #FFEB3B'
+        'box-shadow': '0 0 10px #29B6F6, 0 0 15px #29B6F6'
     });
     $('#nprogress .spinner-icon').css({
-        'border-top-color': '#FFEB3B',
-        'border-left-color': '#FFEB3B'
+        'border-top-color': '#29B6F6',
+        'border-left-color': '#29B6F6'
     });
     setTimeout(function() {
         NProgress.done();
@@ -872,6 +946,12 @@ It will not impact the appearance and can give developers a lot of support :)
 </script>
 
 <!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?[object Object]');
+    });
+</script>
 
 
 <script>

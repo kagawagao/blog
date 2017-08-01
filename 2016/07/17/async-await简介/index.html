@@ -243,12 +243,12 @@
 <!-- Theme Background Related-->
 
     <style>
-      body{
+      body {
         background-color: #F5F5F5;
       }
 
       /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
         background-color: #fff;
       }
     </style>
@@ -291,7 +291,7 @@
 
     <!-- Custom Head -->
     
-</head>
+<link rel="stylesheet" href="/blog/css/prism.css" type="text/css"></head>
 
 
     
@@ -339,12 +339,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#WTF"><span class="post-toc-number">1.</span> <span class="post-toc-text">WTF!!!</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#什么是async-await"><span class="post-toc-number">2.</span> <span class="post-toc-text">什么是async/await?</span></a></li></ol>
-        <!--
-        <li class="mdl-menu__item">
-            Some Action
-        </li>
-        -->
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#WTF"><span class="post-toc-text">WTF!!!</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#什么是async-await"><span class="post-toc-text">什么是async/await?</span></a></li></ol>
     </ul>
     
 
@@ -370,7 +365,7 @@
             <script type="text/ls-javascript" id="post-thumbnail-script">
     var randomNum = Math.floor(Math.random() * 19 + 1);
 
-    $('.post_thumbnail-random').attr('data-original', '' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/gallery/' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
 </script>
 
@@ -489,9 +484,48 @@
     
         <h1 id="WTF"><a href="#WTF" class="headerlink" title="WTF!!!"></a>WTF!!!</h1><p>ECMAScript 7 发布，竟然没有<code>async/await</code>［懵逼脸］。相较于<code>generator</code>，我更偏爱于<code>async/await</code>，我为此还将所有的<code>promise.then</code>和<code>generator</code>全改为<code>async/await</code>［再次懵逼］。</p>
 <a id="more"></a>
-<h1 id="什么是async-await"><a href="#什么是async-await" class="headerlink" title="什么是async/await?"></a>什么是<code>async/await</code>?</h1><p><code>async/await</code>被定义在这个<a href="https://github.com/tc39/ecmascript-asyncawait" target="_blank" rel="external">仓库中</a>，相较于<code>generator</code>，我们利用<code>async/await</code>可以以看起来更为同步的方式写出异步代码，且可读性更高。比如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 一个异步操作</span></div><div class="line"><span class="keyword">const</span> asyncOp = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>)</div><div class="line">  setTimeout(resolve(<span class="literal">true</span>), <span class="number">3000</span>)</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// async/await 方式</span></div><div class="line"><span class="keyword">const</span> asyncFun = <span class="keyword">async</span> () =&gt; &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</div><div class="line">  <span class="keyword">const</span> result = <span class="keyword">await</span> asyncOp()</div><div class="line">  <span class="built_in">console</span>.log(result)</div><div class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line">asyncFun()</div><div class="line"></div><div class="line"><span class="comment">// output</span></div><div class="line"><span class="comment">// 1</span></div><div class="line"><span class="comment">// 2</span></div><div class="line"><span class="comment">// true</span></div><div class="line"><span class="comment">// 3</span></div></pre></td></tr></table></figure></p>
+<h1 id="什么是async-await"><a href="#什么是async-await" class="headerlink" title="什么是async/await?"></a>什么是<code>async/await</code>?</h1><p><code>async/await</code>被定义在这个<a href="https://github.com/tc39/ecmascript-asyncawait" target="_blank" rel="external">仓库中</a>，相较于<code>generator</code>，我们利用<code>async/await</code>可以以看起来更为同步的方式写出异步代码，且可读性更高。比如：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 一个异步操作</span>
+<span class="token keyword">const</span> asyncOp <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// async/await 方式</span>
+<span class="token keyword">const</span> asyncFun <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">asyncOp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">asyncFun</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// output</span>
+<span class="token comment" spellcheck="true">// 1</span>
+<span class="token comment" spellcheck="true">// 2</span>
+<span class="token comment" spellcheck="true">// true</span>
+<span class="token comment" spellcheck="true">// 3</span>
+</code></pre>
 <p>从上面可以看出<code>async/await</code>的存在使得你可以等待await一个Promise的完成。这将以非阻塞的方式暂停这个函数的进行，并且等待Promise的resolve函数的执行并返回结果。如果Promise抛出异常，你可以通过catch去处理这个异常。</p>
-<p>而如果我们用<code>generator</code>的方式去写这部分异步操作我们会怎么写呢，请看代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// generator 方式</span></div><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">asyncFun</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</div><div class="line">  <span class="keyword">yield</span> asyncOp()</div><div class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> demo = asyncFun()</div><div class="line"><span class="keyword">const</span> ret = demo.next().value</div><div class="line"><span class="built_in">console</span>.log(ret)</div><div class="line">demo.next()</div><div class="line"><span class="comment">// output</span></div><div class="line"><span class="comment">// 1</span></div><div class="line"><span class="comment">// 2</span></div><div class="line"><span class="comment">// Promise &#123;[[PromiseStatus]]: "resolved", [[PromiseValue]]: true&#125;</span></div><div class="line"><span class="comment">// 3</span></div></pre></td></tr></table></figure></p>
+<p>而如果我们用<code>generator</code>的方式去写这部分异步操作我们会怎么写呢，请看代码：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// generator 方式</span>
+<span class="token keyword">function</span><span class="token operator">*</span> asyncFun <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token keyword">yield</span> <span class="token function">asyncOp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> demo <span class="token operator">=</span> <span class="token function">asyncFun</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> ret <span class="token operator">=</span> demo<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ret<span class="token punctuation">)</span>
+demo<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// output</span>
+<span class="token comment" spellcheck="true">// 1</span>
+<span class="token comment" spellcheck="true">// 2</span>
+<span class="token comment" spellcheck="true">// Promise {[[PromiseStatus]]: "resolved", [[PromiseValue]]: true}</span>
+<span class="token comment" spellcheck="true">// 3</span>
+</code></pre>
 <p>我承认，我的写法需要改善，但是我真的不喜欢这种写法[这不是偏见！！！]，而且当<code>yield</code>之后返回的就是一个<code>Promise</code>，你还需要其他做一些其他操作再得到这个确切的返回结果。</p>
 <p>总之就是喜欢<code>async/await</code>，没有理由！</p>
 
@@ -630,6 +664,16 @@
 
     <!-- Pages  -->
     
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
 
     <!-- Article Number  -->
     
@@ -762,7 +806,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>We love, and we do
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>We love, and we do
         </div>
 
         <!-- Paradox Footer Right Section -->
@@ -802,14 +846,14 @@ It will not impact the appearance and can give developers a lot of support :)
     });
     NProgress.start();
     $('#nprogress .bar').css({
-        'background': '#FFEB3B'
+        'background': '#29B6F6'
     });
     $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #FFEB3B, 0 0 15px #FFEB3B'
+        'box-shadow': '0 0 10px #29B6F6, 0 0 15px #29B6F6'
     });
     $('#nprogress .spinner-icon').css({
-        'border-top-color': '#FFEB3B',
-        'border-left-color': '#FFEB3B'
+        'border-top-color': '#29B6F6',
+        'border-left-color': '#29B6F6'
     });
     setTimeout(function() {
         NProgress.done();
@@ -865,6 +909,12 @@ It will not impact the appearance and can give developers a lot of support :)
 </script>
 
 <!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?[object Object]');
+    });
+</script>
 
 
 <script>

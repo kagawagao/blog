@@ -210,12 +210,12 @@
 <!-- Theme Background Related-->
 
     <style>
-      body{
+      body {
         background-color: #F5F5F5;
       }
 
       /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
         background-color: #fff;
       }
     </style>
@@ -258,7 +258,7 @@
 
     <!-- Custom Head -->
     
-</head>
+<link rel="stylesheet" href="/blog/css/prism.css" type="text/css"></head>
 
 
     
@@ -538,7 +538,7 @@
         randomNum = Math.floor(Math.random() * 19 + 1);
 
         locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '' + randomNum + '.png');
+        locatePost.children('.post_thumbnail-random').attr('data-original', '/gallery/' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
 
         locatePost = locatePost.next();
@@ -636,6 +636,16 @@
     
 
     <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
     
 
     <!-- Article Number  -->
@@ -761,7 +771,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>We love, and we do
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>We love, and we do
         </div>
 
         <!-- Paradox Footer Right Section -->
@@ -801,14 +811,14 @@ It will not impact the appearance and can give developers a lot of support :)
     });
     NProgress.start();
     $('#nprogress .bar').css({
-        'background': '#FFEB3B'
+        'background': '#29B6F6'
     });
     $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #FFEB3B, 0 0 15px #FFEB3B'
+        'box-shadow': '0 0 10px #29B6F6, 0 0 15px #29B6F6'
     });
     $('#nprogress .spinner-icon').css({
-        'border-top-color': '#FFEB3B',
-        'border-left-color': '#FFEB3B'
+        'border-top-color': '#29B6F6',
+        'border-left-color': '#29B6F6'
     });
     setTimeout(function() {
         NProgress.done();
@@ -864,6 +874,12 @@ It will not impact the appearance and can give developers a lot of support :)
 </script>
 
 <!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?[object Object]');
+    });
+</script>
 
 
 <script>

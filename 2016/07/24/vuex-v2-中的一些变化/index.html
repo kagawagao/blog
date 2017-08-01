@@ -243,12 +243,12 @@
 <!-- Theme Background Related-->
 
     <style>
-      body{
+      body {
         background-color: #F5F5F5;
       }
 
       /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
         background-color: #fff;
       }
     </style>
@@ -291,7 +291,7 @@
 
     <!-- Custom Head -->
     
-</head>
+<link rel="stylesheet" href="/blog/css/prism.css" type="text/css"></head>
 
 
     
@@ -339,12 +339,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#命名语义化"><span class="post-toc-number">1.</span> <span class="post-toc-text">命名语义化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块的可移植性和可组合性"><span class="post-toc-number">2.</span> <span class="post-toc-text">模块的可移植性和可组合性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#store-和-module-中的-action"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">store 和 module 中的 action</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#事件流可组合"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">事件流可组合</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他"><span class="post-toc-number">3.</span> <span class="post-toc-text">其他</span></a></li></ol>
-        <!--
-        <li class="mdl-menu__item">
-            Some Action
-        </li>
-        -->
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#命名语义化"><span class="post-toc-text">命名语义化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块的可移植性和可组合性"><span class="post-toc-text">模块的可移植性和可组合性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#store-和-module-中的-action"><span class="post-toc-text">store 和 module 中的 action</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#事件流可组合"><span class="post-toc-text">事件流可组合</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他"><span class="post-toc-text">其他</span></a></li></ol>
     </ul>
     
 
@@ -370,7 +365,7 @@
             <script type="text/ls-javascript" id="post-thumbnail-script">
     var randomNum = Math.floor(Math.random() * 19 + 1);
 
-    $('.post_thumbnail-random').attr('data-original', '' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/gallery/' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
 </script>
 
@@ -497,18 +492,124 @@
 <li><code>dispatch</code>：表明有某些事件发生的意向（可能是异步操作产生的副作用）。</li>
 <li><code>commit</code>：说明会使实际状态发生改变的同步操作。</li>
 </ul>
-<p>例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// before 2.0.0</span></div><div class="line">actions: &#123;</div><div class="line">  <span class="string">'ACTION_TYPE'</span>: <span class="function">(<span class="params">&#123;dispatch&#125;, payload</span>) =&gt;</span> &#123;</div><div class="line">    dispatch(payload)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// now</span></div><div class="line">actions: &#123;</div><div class="line">  <span class="string">'ACTION_TYPE'</span>: <span class="function">(<span class="params">&#123; commit &#125;, payload</span>) =&gt;</span> &#123;</div><div class="line">    commit(<span class="string">'some-mutation'</span>, payload)</div><div class="line">  &#125;</div><div class="line"><span class="comment">// dispatch</span></div><div class="line">store.dispatch(<span class="string">'ACTION_TYPE'</span>)</div></pre></td></tr></table></figure></p>
+<p>例子：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// before 2.0.0</span>
+actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token string">'ACTION_TYPE'</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>dispatch<span class="token punctuation">}</span><span class="token punctuation">,</span> payload<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token function">dispatch</span><span class="token punctuation">(</span>payload<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// now</span>
+actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token string">'ACTION_TYPE'</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> commit <span class="token punctuation">}</span><span class="token punctuation">,</span> payload<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'some-mutation'</span><span class="token punctuation">,</span> payload<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// dispatch</span>
+store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'ACTION_TYPE'</span><span class="token punctuation">)</span>
+</code></pre>
 <p>从上面的代码中我们可以看出，在 <code>vuex</code> 2.0.0 中，<code>commit</code> 用来说明一个使 <code>mutation</code> 状态发生改变的操作，而 <code>dispatch</code> 则用来触发一个 <code>action</code>。</p>
 <h2 id="模块的可移植性和可组合性"><a href="#模块的可移植性和可组合性" class="headerlink" title="模块的可移植性和可组合性"></a>模块的可移植性和可组合性</h2><hr>
-<h3 id="store-和-module-中的-action"><a href="#store-和-module-中的-action" class="headerlink" title="store 和 module 中的 action"></a><code>store</code> 和 <code>module</code> 中的 <code>action</code></h3><p>如果我们在模块内部定义 <code>actions</code> 时，如果多个模块定义相同名字的 <code>action</code> 时可能会产生部分问题，而且有的时候需要调用多个模块的 <code>action</code>，那么在这两种情况看来，如果我们把 <code>action</code> 定义为一个类似事件监听器的模式而不是直接调用它们，取而代之的是用 <code>store.dispatch</code> 去触发这个事件，这样的话我们就可以在一次调用中触发多个模块的 <code>action</code>，而且这种做法也能够明确的表明这个 <code>action</code> 所有可能产生的副作用。<br>例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</div><div class="line">  actions: &#123;</div><div class="line">    doSomething: <span class="function">(<span class="params">&#123; commit &#125;</span>) =&gt;</span> &#123;</div><div class="line">      commit(<span class="string">'some-mutation'</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="comment">// 你可以直接访问这个action</span></div><div class="line"><span class="built_in">console</span>.log(store.actions.doSomething)</div><div class="line"><span class="comment">// 触发这个action</span></div><div class="line">store.dispatch(<span class="string">'doSomething'</span>)</div></pre></td></tr></table></figure></p>
+<h3 id="store-和-module-中的-action"><a href="#store-和-module-中的-action" class="headerlink" title="store 和 module 中的 action"></a><code>store</code> 和 <code>module</code> 中的 <code>action</code></h3><p>如果我们在模块内部定义 <code>actions</code> 时，如果多个模块定义相同名字的 <code>action</code> 时可能会产生部分问题，而且有的时候需要调用多个模块的 <code>action</code>，那么在这两种情况看来，如果我们把 <code>action</code> 定义为一个类似事件监听器的模式而不是直接调用它们，取而代之的是用 <code>store.dispatch</code> 去触发这个事件，这样的话我们就可以在一次调用中触发多个模块的 <code>action</code>，而且这种做法也能够明确的表明这个 <code>action</code> 所有可能产生的副作用。<br>例子：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    doSomething<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> commit <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'some-mutation'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 你可以直接访问这个action</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>store<span class="token punctuation">.</span>actions<span class="token punctuation">.</span>doSomething<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 触发这个action</span>
+store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'doSomething'</span><span class="token punctuation">)</span>
+</code></pre>
 <p>与之类似的还有 <code>getters</code></p>
-<p>我们同样可以直接在 <code>store</code> 中定义，也可以在 <code>module</code> 内部定义<br>例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</div><div class="line">  state: &#123;</div><div class="line">    count: <span class="number">0</span></div><div class="line">  &#125;,</div><div class="line">  getters: &#123;</div><div class="line">    hasAny: <span class="function"><span class="params">state</span> =&gt;</span> state.count &gt; <span class="number">0</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// access the getter</span></div><div class="line">store.getters.hasAny <span class="comment">// -&gt; false</span></div></pre></td></tr></table></figure></p>
-<h3 id="事件流可组合"><a href="#事件流可组合" class="headerlink" title="事件流可组合"></a>事件流可组合</h3><p>因为 <code>dispatch</code> 的存在，我们在需要一次操作触发多个 <code>action</code> 的情况下，那么事件流的可组合就会使得代码写起来游刃有余，尤其是结合 <code>Promise</code> 或者 <code>async/await</code>。比如我们有一个列表，在删除列表中的一项或多项之后，我们通常需要重新拉去一次列表或者将本地的列表数据重排，那么我们就可以在完成 <code>deleteItem</code> 之后通过 <code>store.dispatch</code> 来触发 <code>getList</code> 操作，与之形成对比的是，我们在 <code>Redux</code> 中所使用的 <code>redux-saga</code>。<br>例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</div><div class="line">  actions: &#123;</div><div class="line">    deleteItem: <span class="function">(<span class="params">&#123; commit &#125;, payload</span>) =&gt;</span> &#123;</div><div class="line">      <span class="keyword">return</span> callPromiseAPI(payload).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</div><div class="line">         commit(<span class="string">'delete'</span>, &#123; res &#125;)</div><div class="line">      &#125;)</div><div class="line">    &#125;,</div><div class="line">    getList: <span class="function">(<span class="params">&#123; commit &#125;, payload</span>) =&gt;</span> &#123;</div><div class="line">      <span class="keyword">return</span> callPromiseAPI(payload).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</div><div class="line">         commit(<span class="string">'list'</span>, &#123; res &#125;)</div><div class="line">      &#125;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">store.dispatch(<span class="string">'deleteItem'</span>, &#123; <span class="attr">id</span>: <span class="number">1</span> &#125;).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="comment">// action done</span></div><div class="line">  store.dispatch(getList, &#123;<span class="attr">page</span>: <span class="number">1</span>&#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 结合 async/await</span></div><div class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</div><div class="line">  actions: &#123;</div><div class="line">    one: <span class="keyword">async</span> (&#123; commit &#125;, payload) =&gt; &#123;</div><div class="line">      <span class="keyword">const</span> res = <span class="keyword">await</span> callPromiseAPI(payload)</div><div class="line">      commit(<span class="string">'some-mutation'</span>, &#123; res &#125;)</div><div class="line">    &#125;,</div><div class="line">    two: <span class="keyword">async</span> (&#123; dispatch, commit &#125;) =&gt; &#123;</div><div class="line">      <span class="keyword">await</span> dispatch(<span class="string">'one'</span>)</div><div class="line">      commit(<span class="string">'done'</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">store.dispatch(<span class="string">'two'</span>) <span class="comment">// fires off complicated async flow</span></div></pre></td></tr></table></figure>
+<p>我们同样可以直接在 <code>store</code> 中定义，也可以在 <code>module</code> 内部定义<br>例子：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  state<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    count<span class="token punctuation">:</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  getters<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    hasAny<span class="token punctuation">:</span> state <span class="token operator">=</span><span class="token operator">></span> state<span class="token punctuation">.</span>count <span class="token operator">></span> <span class="token number">0</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// access the getter</span>
+store<span class="token punctuation">.</span>getters<span class="token punctuation">.</span>hasAny <span class="token comment" spellcheck="true">// -> false</span>
+</code></pre>
+<h3 id="事件流可组合"><a href="#事件流可组合" class="headerlink" title="事件流可组合"></a>事件流可组合</h3><p>因为 <code>dispatch</code> 的存在，我们在需要一次操作触发多个 <code>action</code> 的情况下，那么事件流的可组合就会使得代码写起来游刃有余，尤其是结合 <code>Promise</code> 或者 <code>async/await</code>。比如我们有一个列表，在删除列表中的一项或多项之后，我们通常需要重新拉去一次列表或者将本地的列表数据重排，那么我们就可以在完成 <code>deleteItem</code> 之后通过 <code>store.dispatch</code> 来触发 <code>getList</code> 操作，与之形成对比的是，我们在 <code>Redux</code> 中所使用的 <code>redux-saga</code>。<br>例子：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    deleteItem<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> commit <span class="token punctuation">}</span><span class="token punctuation">,</span> payload<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token function">callPromiseAPI</span><span class="token punctuation">(</span>payload<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+         <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'delete'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> res <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    getList<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> commit <span class="token punctuation">}</span><span class="token punctuation">,</span> payload<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token function">callPromiseAPI</span><span class="token punctuation">(</span>payload<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+         <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'list'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> res <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'deleteItem'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> id<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// action done</span>
+  store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span>getList<span class="token punctuation">,</span> <span class="token punctuation">{</span>page<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 结合 async/await</span>
+<span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    one<span class="token punctuation">:</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> commit <span class="token punctuation">}</span><span class="token punctuation">,</span> payload<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">callPromiseAPI</span><span class="token punctuation">(</span>payload<span class="token punctuation">)</span>
+      <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'some-mutation'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> res <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    two<span class="token punctuation">:</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> dispatch<span class="token punctuation">,</span> commit <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token keyword">await</span> <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'one'</span><span class="token punctuation">)</span>
+      <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'done'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'two'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// fires off complicated async flow</span>
+</code></pre>
 <p>从上面的两部分代码你可能发现了两种写法，实际上两种写法的效果是一样的，只是 <code>Promise.then()</code> 与 <code>async/await</code> 的区别</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>出上面两个之外，<code>Vuex@2</code> 还提供了 <code>mapGetters</code> 和 <code>mapActions</code> 两个辅助函数，在之前的版本中，我们在一个组件内部使用 <code>getters</code> 和 <code>actions</code> 通常都是通过下面种方式：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  vuex: &#123;</div><div class="line">    getters: &#123;</div><div class="line"></div><div class="line">    &#125;,</div><div class="line">    actions: &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>那么在有这两个辅助函数之后我们只需要这样：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;mapActions, mapGetters&#125; <span class="keyword">from</span> <span class="string">'vuex'</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  computed: mapGetters([<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]),</div><div class="line">  methods: mapActions([<span class="string">'doA'</span>, <span class="string">'doB'</span>, <span class="string">'doC'</span>])</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>当然就像我们在第二部分中提到的，你可以通过下面中方式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  computed: &#123;</div><div class="line">    a: () &#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.$store.getters.a</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    doB: () &#123;</div><div class="line">      <span class="keyword">this</span>.$store.dispatch(<span class="string">'b'</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>出上面两个之外，<code>Vuex@2</code> 还提供了 <code>mapGetters</code> 和 <code>mapActions</code> 两个辅助函数，在之前的版本中，我们在一个组件内部使用 <code>getters</code> 和 <code>actions</code> 通常都是通过下面种方式：</p>
+<pre class=" language-javascript"><code class="language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  vuex<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    getters<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>那么在有这两个辅助函数之后我们只需要这样：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span>mapActions<span class="token punctuation">,</span> mapGetters<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vuex'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  computed<span class="token punctuation">:</span> <span class="token function">mapGetters</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  methods<span class="token punctuation">:</span> <span class="token function">mapActions</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'doA'</span><span class="token punctuation">,</span> <span class="token string">'doB'</span><span class="token punctuation">,</span> <span class="token string">'doC'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>当然就像我们在第二部分中提到的，你可以通过下面中方式</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    a<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>getters<span class="token punctuation">.</span>a
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    doB<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>更多使用方法，请查看这个<a href="https://github.com/vuejs/vuex/issues/236" target="_blank" rel="external">issue</a></p>
 <p>另外 <code>vuex@2</code> 可能会随着 <code>vue@2</code> 一起发布，目前都处在 <code>beta</code> 阶段，欢迎入坑！</p>
 
@@ -647,6 +748,16 @@
 
     <!-- Pages  -->
     
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
 
     <!-- Article Number  -->
     
@@ -779,7 +890,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>We love, and we do
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>We love, and we do
         </div>
 
         <!-- Paradox Footer Right Section -->
@@ -819,14 +930,14 @@ It will not impact the appearance and can give developers a lot of support :)
     });
     NProgress.start();
     $('#nprogress .bar').css({
-        'background': '#FFEB3B'
+        'background': '#29B6F6'
     });
     $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #FFEB3B, 0 0 15px #FFEB3B'
+        'box-shadow': '0 0 10px #29B6F6, 0 0 15px #29B6F6'
     });
     $('#nprogress .spinner-icon').css({
-        'border-top-color': '#FFEB3B',
-        'border-left-color': '#FFEB3B'
+        'border-top-color': '#29B6F6',
+        'border-left-color': '#29B6F6'
     });
     setTimeout(function() {
         NProgress.done();
@@ -882,6 +993,12 @@ It will not impact the appearance and can give developers a lot of support :)
 </script>
 
 <!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?[object Object]');
+    });
+</script>
 
 
 <script>
