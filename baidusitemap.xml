@@ -26,16 +26,16 @@
 
     
   <url>
-    <loc>http://kingsongao.com/blog/blog/2016/10/05/%E5%85%B3%E4%BA%8E-vue-2/</loc>
+    <loc>http://kingsongao.com/blog/blog/2016/07/17/async-await%E7%AE%80%E4%BB%8B/</loc>
     <lastmod>2017-08-01T14:48:37.000Z</lastmod>
     <data>
         <display>
-        <title>关于 vue@2</title>
-        <pubTime>2016-10-05T14:30:28.000Z</pubTime>
+        <title>async/await简介</title>
+        <pubTime>2016-07-17T09:00:35.000Z</pubTime>
         
-        <tag>Vue</tag>
-         
         <tag>前端开发</tag>
+         
+        <tag>ES Next</tag>
          
          
            
@@ -48,16 +48,16 @@
 
     
   <url>
-    <loc>http://kingsongao.com/blog/blog/2016/07/17/async-await%E7%AE%80%E4%BB%8B/</loc>
+    <loc>http://kingsongao.com/blog/blog/2016/10/05/%E5%85%B3%E4%BA%8E-vue-2/</loc>
     <lastmod>2017-08-01T14:48:37.000Z</lastmod>
     <data>
         <display>
-        <title>async/await简介</title>
-        <pubTime>2016-07-17T09:00:35.000Z</pubTime>
+        <title>关于 vue@2</title>
+        <pubTime>2016-10-05T14:30:28.000Z</pubTime>
         
-        <tag>前端开发</tag>
+        <tag>Vue</tag>
          
-        <tag>ES Next</tag>
+        <tag>前端开发</tag>
          
          
            
