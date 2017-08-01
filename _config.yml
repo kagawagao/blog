@@ -7,7 +7,7 @@ title: We love, and we do
 subtitle:
 description: All the things you had done is your love.
 author: kagawa
-language: zh-Hans
+language: zh-CN
 timezone:
 
 # URL
@@ -16,7 +16,7 @@ url: http://kingsongao.com/blog
 root: /blog/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
-  lang: zh-Hans
+  lang: zh-CN
 sitemap:
   path: sitemap.xml
 baidusitemap:
@@ -42,9 +42,13 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
+prism_plugin:
+  mode: 'preprocess'    # realtime/preprocess
+  theme: 'default'
+  line_number: false    # default false
 highlight:
-  enable: true
-  line_number: true
+  enable: false
+  line_number: false
   auto_detect: true
   tab_replace: 2
 
@@ -68,7 +72,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: material
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -81,43 +85,43 @@ deploy:
 # NexT Theme configuration
 # =============================================================================
 
-avatar: https://avatars3.githubusercontent.com/u/6930280?v=3&s=460
+# avatar: https://avatars3.githubusercontent.com/u/6930280?v=3&s=460
 
 # Duoshuo
-duoshuo_shortname: kagawagao
+# duoshuo_shortname: kagawagao
 
 # Disqus
-disqus_shortname:
+# disqus_shortname:
 
 
 # Social links
-social:
-  GitHub: https://github.com/kagawagao
-  Twitter: https://twitter.com/kagawagao
-  微博: http://weibo.com/kagawagao
-  知乎: https://www.zhihu.com/people/kagawagao
+# social:
+  # GitHub: https://github.com/kagawagao
+  # Twitter: https://twitter.com/kagawagao
+  # 微博: http://weibo.com/kagawagao
+  # 知乎: https://www.zhihu.com/people/kagawagao
 
 
 # Creative Commons 4.0 International License.
 # http://creativecommons.org/
 # Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
-creative_commons: by-nc
+# creative_commons: by-nc
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
-google_site_verification: InY9uB5AcU-qvYvD3iW7iXSk3k1sHsPdeWVH049hz6s
+# google_site_verification: InY9uB5AcU-qvYvD3iW7iXSk3k1sHsPdeWVH049hz6s
 
 
 # Google Analytics
 # Google分析ID
-google_analytics: UA-81696369-1
+# google_analytics: UA-81696369-1
 
 
 # 百度分析ID
-baidu_analytics: 882863bb1252e7cd7e541032244b70dd
+# baidu_analytics: 882863bb1252e7cd7e541032244b70dd
 
 # Specify the date when the site was setup
-since: 2016
+# since: 2016
 
 # Swiftype Search Key
 # swiftype_key: zXXzFDDySYe795stVsAy
