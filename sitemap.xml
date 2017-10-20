@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://kingsongao.com/blog/2016/07/24/vuex-v2-%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%98%E5%8C%96/</loc>
+    
+    <lastmod>2017-10-20T06:49:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kingsongao.com/blog/2017/10/20/%E5%89%8D%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81/</loc>
+    
+    <lastmod>2017-10-20T06:48:06.721Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://kingsongao.com/blog/tags/index.html</loc>
     
     <lastmod>2017-10-20T06:05:16.638Z</lastmod>
@@ -17,13 +31,6 @@
   
   <url>
     <loc>http://kingsongao.com/blog/2016/07/17/async-await%E7%AE%80%E4%BB%8B/</loc>
-    
-    <lastmod>2017-08-01T14:48:37.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kingsongao.com/blog/2016/07/24/vuex-v2-%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%98%E5%8C%96/</loc>
     
     <lastmod>2017-08-01T14:48:37.000Z</lastmod>
     

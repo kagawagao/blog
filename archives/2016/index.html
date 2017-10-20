@@ -210,13 +210,8 @@
 <!-- Theme Background Related-->
 
     <style>
-      body {
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
-        background-color: #fff;
+      body{
+        background-image: url(https://api.i-meto.com/bing?type=N);
       }
     </style>
 
@@ -367,7 +362,7 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            由于之前身体抱恙休假在家，于是对 vue/vuex 便没有多少关注，在上周回来投入到工作中时发现 vuex 2.0.0 相对于之前的版本有了部分变化，关于 vuex 最新版的设计在此issue中。
+            由于之前身体抱恙休假在家，于是对 vue/vuex 便没有多少关注，在上周回来投入到工作中时发现 vuex 2.0.0 相对于之前的版本有了部分变化，关于 vuex 最新版的设计在此 issue 中。
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -538,7 +533,7 @@
         randomNum = Math.floor(Math.random() * 19 + 1);
 
         locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', 'images/' + randomNum + '.png');
+        locatePost.children('.post_thumbnail-random').attr('data-original', '/blog/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
 
         locatePost = locatePost.next();
@@ -557,7 +552,7 @@
 <aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
     <div id="sidebar-main">
         <!-- Sidebar Header -->
-        <div class="sidebar-header header-cover" style="background-image: url();">
+        <div class="sidebar-header header-cover" style="background-image: url(/blog/images/4.jpg);">
     <!-- Top bar -->
     <div class="top-bar"></div>
 
@@ -626,7 +621,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/blog/archives/2016/10/">十月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/blog/archives/2016/07/">七月 2016<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/blog/archives/2016/04/">四月 2016<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/blog/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/blog/archives/2016/10/">十月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/blog/archives/2016/07/">七月 2016<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/blog/archives/2016/04/">四月 2016<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -888,12 +883,6 @@ It will not impact the appearance and can give developers a lot of support :)
 </script>
 
 <!-- Bing Background -->
-
-<script type="text/ls-javascript" id="Bing-Background-script">
-    queue.offer(function(){
-        $('body').attr('data-original', 'https://api.i-meto.com/bing?color=blue');
-    });
-</script>
 
 
 <script>
