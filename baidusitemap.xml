@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://kingsongao.com/blog/blog/2017/10/20/%E5%89%8D%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81/</loc>
+    <lastmod>2017-10-20T08:58:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>前端工作流</title>
+        <pubTime>2017-10-20T06:44:32.000Z</pubTime>
+        
+        <tag>经验总结</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://kingsongao.com/blog/blog/2016/04/13/Vue%E7%AE%80%E4%BB%8B/</loc>
     <lastmod>2017-10-20T08:28:00.000Z</lastmod>
     <data>
@@ -11,9 +28,9 @@
         <title>Vue简介</title>
         <pubTime>2016-04-13T04:47:46.000Z</pubTime>
         
-        <tag>前端开发</tag>
-         
         <tag>Vue</tag>
+         
+        <tag>前端开发</tag>
          
          
            
@@ -55,9 +72,9 @@
         <title>vuex v2 中的一些变化</title>
         <pubTime>2016-07-24T14:51:22.000Z</pubTime>
         
-        <tag>前端开发</tag>
-         
         <tag>Vue</tag>
+         
+        <tag>前端开发</tag>
          
         <tag>Vuex</tag>
          
@@ -79,32 +96,15 @@
         <title>关于 vue@2</title>
         <pubTime>2016-10-05T14:30:28.000Z</pubTime>
         
-        <tag>前端开发</tag>
-         
         <tag>Vue</tag>
+         
+        <tag>前端开发</tag>
          
          
            
              
               <breadCrumb title="技术" url="http://kingsongao.com/blog/blog/categories/%E6%8A%80%E6%9C%AF/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://kingsongao.com/blog/blog/2017/10/20/%E5%89%8D%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81/</loc>
-    <lastmod>2017-10-20T08:24:52.816Z</lastmod>
-    <data>
-        <display>
-        <title>前端工作流</title>
-        <pubTime>2017-10-20T06:44:32.000Z</pubTime>
-        
-        <tag>经验总结</tag>
-         
-         
-           
         </display>
     </data>
     </url>
