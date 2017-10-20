@@ -1,6 +1,7 @@
 ---
 title: async/await简介
 date: 2016-07-17 17:00:35
+thumbnail: /blog/images/22.jpg
 categories:
   -  技术
 tags:
