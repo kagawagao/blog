@@ -5,8 +5,35 @@
     <!--
         © Material Theme
         https://github.com/viosey/hexo-theme-material
-        Version: 1.4.0 -->
-    <script>window.materialVersion = "1.4.0"</script>
+        Version: 1.5.0 -->
+    <script>
+        window.materialVersion = "1.5.0"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net/npm/hexo-material@1.5.0/source"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- Title -->
     
@@ -17,36 +44,26 @@
         We love, and we do
     </title>
 
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
     <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
     <meta name="theme-color" content="#03A9F4">
     <meta name="author" content="kagawa">
     <meta name="description" itemprop="description" content="Vue项目地址: Github、官网
 作者:yyx990803">
     <meta name="keywords" content="Hexo, Blog, kagawa, kagawagao,Vue,前端开发">
 
-    <!-- Site Verification -->
-    <meta name="google-site-verification" content="InY9uB5AcU-qvYvD3iW7iXSk3k1sHsPdeWVH049hz6" />
-    
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
 
     <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="favicon.ico">
-    <link rel="icon" sizes="192x192" href="favicon.ico">
-    <link rel="apple-touch-icon" href="favicon.ico">
+    <link rel="icon shortcut" type="image/ico" href="/blog/favicon.ico">
+    <link rel="icon" sizes="192x192" href="/blog/favicon.ico">
+    <link rel="apple-touch-icon" href="/blog/favicon.ico">
 
     <!--iOS -->
     <meta name="apple-mobile-web-app-title" content="Title">
@@ -63,70 +80,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="We love, and we do">
 
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://kingsongao.com/blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Vue简介 | We love, and we do">
-    <meta property="og:image" content="favicon.ico" />
-    <meta property="og:description" content="Vue项目地址: Github、官网
-作者:yyx990803">
-    <meta property="og:article:tag" content="Vue"> <meta property="og:article:tag" content="前端开发"> 
-
-    
-        <meta property="article:published_time" content="Wed Apr 13 2016 12:47:46 GMT+0800" />
-        <meta property="article:modified_time" content="Tue Aug 01 2017 22:48:37 GMT+0800" />
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="InY9uB5AcU-qvYvD3iW7iXSk3k1sHsPdeWVH049hz6" />
     
 
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Vue简介 | We love, and we do">
-    <meta name="twitter:description" content="Vue项目地址: Github、官网
-作者:yyx990803">
-    <meta name="twitter:image" content="favicon.ico">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="http://kingsongao.com/blog" />
-
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="http://kingsongao.com/blog/blog/2016/04/13/Vue简介/index.html" />
-    
-
-    <!-- Structured-data for SEO -->
-    
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": "We love, and we do",
-        "logo": "favicon.ico"
-    },
-    "author": {
-        "@type": "Person",
-        "name": "kagawa",
-        "image": {
-            "@type": "ImageObject",
-            "url": "favicon.ico"
-        },
-        "description": "We love, and we do"
-    },
-    "headline": "Vue简介",
-    "url": "http://kingsongao.com/blog/blog/2016/04/13/Vue简介/index.html",
-    "datePublished": "Wed Apr 13 2016 12:47:46 GMT+0800",
-    "dateModified": "Tue Aug 01 2017 22:48:37 GMT+0800",
-    "description": "Vue项目地址: Github、官网
-作者:yyx990803",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://kingsongao.com/blog"
-    }
-}
-</script>
-
-
+    <!-- RSS -->
     
 
     <!--[if lte IE 9]>
@@ -137,52 +95,28 @@
         
     <![endif]-->
 
-    <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
-
-    <!-- Import CSS & jQuery -->
+    <!-- Import CSS -->
     
-        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/blog/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/blog/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        
-        
-            <style>
-    
-    
-    .footer-sns-twitter {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNTMyLjggMjA1YzEwIDQgMjMgMTAuOCAyOC44IDE1LjIgMTIuNiA5LjIgMTYuNiAxMC42IDI5LjQgOS40IDYuNi0uNiAxMy0zLjIgMjAuNC04LjIgMTEuMi03LjYgMTkuNC05LjIgMjMuNi01IDMuNiAzLjYgMi44IDktMi44IDE4LjYtNy4yIDEyLjQtNiAxOC44IDQuMiAyNC4yIDQuNCAyLjIgOC4yIDUuNiA4LjYgNy40IDEgNC44LTEyLjYgMjQuMi0yMiAzMS44LTExLjggOS4yLTE3LjIgMjIuNi0xOS42IDQ3LjgtNC44IDUwLjQtNy44IDY2LjYtMTYuNCA4NS40LTMgNy03IDE3LjgtOC44IDI0LTEuOCA2LjQtNSAxNC42LTcuNCAxOC40LTIuMiAzLjgtNy40IDEzLTExLjQgMjAuNC0xNy4yIDMwLjgtNDMuNCA2MS40LTcxLjQgODMuOC0yNS42IDIwLjQtNDYgMzMuMi02NC4yIDQwLjItOC40IDMuMi0xOCA3LjYtMjEuNCA5LjYtNy40IDQuNi0yMi40IDguNi01Ny4yIDE1LTYyLjIgMTEuNi03OS4yIDExLjQtMTM1LjYtMS0zMi40LTctMzguNi05LTUyLTE2LjgtMjEuNC0xMi42LTI0LjItMTQuOC0yNC4yLTE5LjQgMC02LjIgMTAuMi05LjIgMzUtMTAuNCAyMi40LTEgMjguNi0yLjYgNTctMTQuMiAyMy44LTkuOCAyOS40LTEyLjggMzAuNC0xNi44IDIuMi04LjItMy0xMy4yLTI2LjgtMjUuNC0yNS44LTEzLjItMzIuMi0xOC40LTQzLjgtMzUuOC05LTEzLjYtMTAtMjEuMi0zLjYtMzMuNiA1LjQtMTAuOCAzLjYtMTUtMTEuOC0yNS40LTktNi0xNC0xMS42LTIwLjgtMjIuNi0yMy40LTM3LjgtMjUtNTAuOC03LjItNTkuOCA0LjgtMi40IDkuNC01LjQgMTAuMi02LjYgMi44LTQuMi0uNC0xNS42LTguNC0yOS0xMS42LTE5LjYtMTMuMi0yNS44LTEzLjItNTUuMiAwLTI4LjggMi42LTM3LjggMTItNDAuMiA5LTIuMiAxNC44IDEgMzUuNiAyMC4yIDI0LjggMjIuOCA0My42IDM2LjYgNjIuOCA0NS44IDggMy44IDE3LjggOS4yIDIyIDEyIDQuMiAyLjggMTQuOCA3IDIzLjQgOS4yIDguNiAyLjIgMjQuMiA2LjggMzQuOCAxMC4yIDEzLjQgNC40IDIzLjYgNi40IDMzIDYuNiAxMi44LjIgMTQuMi0uMiAxOC42LTUuNCA0LTQuOCA0LjgtNy44IDQuOC0xOS4yIDAtMTQuNCA1LjYtMzkuNiAxMS4yLTUwLjYgNC4yLTguNCAyOS4yLTM0LjIgMzkuOC00MS40IDcuOC01LjQgMzUuNi0xNiA1Mi0yMCAxNC4yLTMuNiAzMi42LTEuMiA1Mi40IDYuOHoiLz48L3N2Zz4=);
-    }
-    
-    
-    
-    .footer-sns-weibo {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzUuMiA3OWMtOC42IDMtMjIuOCAxMi40LTMyLjggMjEuOC04LjIgNy44LTIyLjIgMzEtMjQuNiA0MC42LTEgNC4yLTEuNiAxNjctMS42IDM2NC42IDAgMjg0LjguNCAzNTguNCAyLjYgMzY0IDEuNCAzLjggNi44IDEzIDEyIDIwLjQgOC44IDEyLjggMjQgMjUuNCA0MS44IDM1IDYgMy40IDI3IDMuNiAzNjcuNCAzLjYgMjg2LjIgMCAzNjIuNi0uNiAzNjktMi42IDE5LjgtNi4yIDUxLjItMzcuNiA1Ny40LTU3LjQgMi02LjQgMi42LTgyLjYgMi42LTM2OFYxNDFsLTQuMi05Yy0xMS42LTI0LTM5LjItNDkuOC01OC4yLTU0LjItNC4yLTEtMTY4LjYtMS42LTM2NS42LTEuNi0zMDAgMC0zNTkuMi40LTM2NS44IDIuOHptNTU4LjYgMTY5YzguNiAxLjIgMTYuNCA0IDI0IDguNiA2LjIgMy42IDE1LjIgOC4yIDIwLjIgMTAuMiA1LjggMi4yIDE0LjYgOC44IDI1IDE4LjggMjUuNCAyNC44IDMyLjggMzQuOCAzNy44IDUxIDIuNiA4IDcuNCAxOS44IDEwLjggMjYuNCA3LjggMTQuNiAxMS42IDQyLjYgOS40IDY5LTEgMTQuMi0yLjIgMTguNi03LjQgMjYuNC0zLjIgNS4yLTkgMTIuMi0xMi44IDE1LjYtMTMuOCAxMi0zNCA1LjgtMzguOC0xMi0xLjYtNi0xLjQtMTEuNCAxLjItMjMuNCA0LjItMjAgMy00Ni0yLjYtNTguNi0yLjItNS04LTEyLjYtMTIuOC0xNi44LTQuOC00LjItMTQuNi0xNi40LTIxLjgtMjYuOC03LjItMTAuNi0xNS4yLTIwLjgtMTgtMjIuOC0yLjgtMi0xMi42LTYtMjItOS0xNC40LTQuNC0yMC44LTUuNC00My01LjYtMjgtLjItMzEuNC0xLjItNDIuNC0xMS42LTcuNC03LTguNi0xNS42LTMuOC0yNS4yIDctMTMuMiAxNi40LTE2IDU0LjItMTYgMTYuNiAwIDM1LjguOCA0Mi44IDEuOHptLTIxMy42IDc1LjZjMjAuMiAxNS40IDIwLjYgMTYuNCAyMiA0OCAuNiAxNSAxLjggMjkgMi42IDMxIDIuOCA2LjIgMTEgNi42IDIxLjYuNiA1LjQtMy4yIDE0LTUuOCAyMC02LjQgNS44LS42IDE4LjgtMi40IDI5LTQuMiAxNy4yLTMgMTkuNC0zIDM2IC40IDMyIDYuNiAzNS44IDkuMiA0NC4yIDMxLjYgNS4yIDE0IDUuNCAyMS40IDEuMiAzMi44LTIuMiA1LjQtMi44IDExLTIgMTUuNCAxLjggMTAgMTcuNiAyMy40IDM1IDMwLjIgMTEuMiA0LjIgMTYuMiA3LjYgMjcgMTkgMTkuMiAxOS44IDIwLjIgMjMgMjAgNTktLjIgMzUtLjQgMzUuNC0xOS44IDYzLjYtMTMuOCAxOS44LTMyLjQgMzguNi00OSA1MC01IDMuNC0xMi4yIDguOC0xNS44IDEyLTMuOCAzLjItMTEuNiA4LTE3LjIgMTAuNC01LjYgMi42LTE0LjYgNy40LTE5LjggMTAuNi01LjIgMy40LTE1LjggNy42LTIzLjggOS40LTggMi0yMS4yIDYuNi0yOS42IDEwLjItMjIuNCAxMC0zNi4yIDExLjItMTIxLjggMTAuNGwtNzUtLjYtMTktOC40Yy0xMC42LTQuNi0yNS40LTkuOC0zMy0xMS42LTcuNi0xLjYtMTgtNS44LTIzLTlzLTE0LjItOC0yMC40LTEwLjhjLTE4LTgtNTkuNC00Ni4yLTY2LTYxLjItMi4yLTUtNy40LTE0LjQtMTEuNC0yMC44bC03LjItMTJWNTQ5bDcuNi0xMy42YzQuMi03LjQgOS40LTE4LjYgMTEuNi0yNC44IDMuOC0xMS40IDEzLjQtMjcuOCAyNC44LTQyLjYgMjAuMi0yNi4yIDM4LjQtNDYuOCA1My02MCA5LjItOC4yIDIxLTE4LjYgMjYtMjMuMiA1LTQuNCAxMy4yLTExIDE4LjYtMTQuNiA1LjItMy40IDkuNC03LjIgOS40LTggMC0xIDUuNi00LjYgMTIuNi04LjIgNi44LTMuOCAxNi40LTkuNiAyMS40LTEzLjIgNS0zLjYgMTQuNC04IDIxLTkuOCA2LjYtMiAxNy44LTYuNiAyNS0xMC4yIDEyLTYuMiAxNC40LTYuOCAzMi40LTYuOGgxOS40bDEyLjQgOS42em0yMDMuNiAxMy4yYzMgMS42IDYuNiA0LjQgOCA2IDEuNiAxLjggOS40IDcgMTcuNCAxMS42IDE3IDkuNiAxOSAxMyAyNCA0MiAzLjQgMjAuNCAyLjYgMzIuMi0zLjQgNDMuOC03LjYgMTUuMi0yMi44IDIwLjYtMzEuMiAxMS4yLTctNy42LTkuMi0xMy44LTEwLjYtMjkuNi0xLjItMTMuMi0yLjQtMTYuNC05LjYtMjcuMi0xMS0xNi0xNi44LTIwLjYtMjcuMi0yMC42LTEwIDAtMjQtNi4yLTI3LTExLjYtNS44LTEwLjguNC0yNC42IDEyLjQtMjguNCA4LjYtMi42IDQwLjItLjggNDcuMiAyLjh6Ii8+PHBhdGggZD0iTTQyNCA0NzcuNGMtMzIuNiAzLjYtNDcuOCA3LTYxLjggMTMuOC04IDQtMTkgOC40LTI0LjIgMTAtNS4yIDEuNi0xMi40IDUtMTYuMiA3LjgtMy44IDIuNi0xMSA3LjYtMTYuMiAxMS0xMy40IDguOC0zNSAzMy4yLTM4LjggNDQtMS44IDUtNS40IDE0LjQtOC4yIDIxLTguOCAyMS4yLTguMiAyNi44IDQgNTMgMTAuNiAyMi42IDExIDIzLjIgMjcuNiAzNi40IDIxIDE2LjggMjMuNiAxOC40IDUwLjggMjguMiAyMC4yIDcuMiAyNC42IDggNTQgMTAgMTcuNiAxLjIgNDUuNiAyLjIgNjIgMi4ybDMwIC4yIDE3LjQtOC40YzkuNi00LjYgMjIuNC05LjYgMjguMi0xMS40IDYtMS44IDE1LjQtNi4yIDIwLjgtMTAgNS40LTMuNiAxMy40LTguNiAxNy42LTEwLjggOS4yLTQuNiAzOS0zNC40IDM5LTM5IDAtMS42IDMuOC0xMC4yIDguNC0xOC44IDcuOC0xNC4yIDguNi0xNi44IDguNC0yOS42LS4yLTEyLjgtMS0xNS44LTEwLjYtMzQuNi0xMy40LTI2LjItMzAuNC00My42LTUwLjItNTEuNC03LjItMi44LTE2LjItNy0yMC05LjYtMTEuNC03LjYtMTcuNi05LjItNDguOC0xMi40LTI3LjYtMi44LTU2LjYtMy40LTczLjItMS42em0zOS40IDQ0LjRjMTEuMiAyLjIgMjIuNiA1IDI1IDYuNCA3IDMuNiAyNiAyMS44IDMwLjggMjkuNCA4LjYgMTMuNCAxMSA1NCA0LjYgNzctMi42IDkuNi0xOC44IDI3LjYtMzkuNCA0NC4yLTE1LjYgMTIuNC0xNyAxMy0yOS44IDE0LTcuNi44LTIyLjQgMi4yLTMzIDMuNi0yMi42IDIuNi00NS42IDEtNTMuOC0zLjgtMy4yLTItOC02LjgtMTAuOC0xMC44LTIuNi00LjItOC40LTEwLjQtMTIuOC0xMy44LTguMi02LjgtMTMuNC0xNi40LTE5LjQtMzctMy44LTEzLjItMi44LTIxLjggNS4yLTQ3LjYgMy4yLTEwLjQgNi0xNC42IDE3LjQtMjUuOCAxMi40LTEyLjIgMjMuOC0yMi4yIDMzLjItMjkuNiA0LTMgMzguNi05LjQgNTMuNC05LjggNSAwIDE4LjIgMS42IDI5LjQgMy42eiIvPjxwYXRoIGQ9Ik0zODcuMiA2MDZjLTEyLjIgMy44LTE4LjIgMTMuNC0xNSAyNC42IDUuOCAyMS4yIDI3LjggMjUuOCA0MC42IDguNiA2LjYtOC44IDcuOC0xNi4yIDQuMi0yNC00LjgtMTAuMi0xNS40LTEzLjQtMjkuOC05LjJ6Ii8+PC9zdmc+);
-    }
-    
-    
-    
-    
-    .footer-sns-github {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNCA3OGMtNi40IDEuNC0yNi40IDE0LjItMzYgMjIuOC04IDcuMi0yMiAyOS44LTI0LjQgMzkuMi0xLjYgNi40LTIgMTEzLjItMS42IDM2OCAuNiAyOTkuNCAxIDM1OS44IDMuNCAzNjQgMTEgMjAuMiAyMS42IDMyLjQgMzcuMiA0MyAxNS42IDEwLjYgMTcuMiAxMS4yIDM0LjIgMTMuMiAxMC42IDEuMiA2My40IDEuNiAxMjcuNiAxLjRsMTA5LjYtLjYgNi02LjggNi4yLTYuOC0xLjItMjUuMmMtLjgtMTUuOC0uMi0zMy40IDEuNC00Ny4yIDMtMjUuNCAxLjQtMzYuMi02LTQzLjItNS00LjYtNi4yLTQuOC0zMC42LTQuMi0yNy42LjgtMjQgMS42LTY4LjgtMTYtOC42LTMuNC0yMi42LTE4LTI4LjQtMjkuOC0xMS40LTIyLjgtMjctNDUtMzkuMi01NS42LTE0LTEyLjItMTkuOC0yMC44LTE5LjgtMjguNiAwLTExLjYgMTMuNi0xMi42IDMzLjItMi40IDE2LjYgOC44IDIwLjggMTIuNCA0MC44IDM2LjIgMjQuMiAyOC42IDMxIDMzLjYgNTQgMzkuNiAxNS4yIDQgNDIuMiAzIDUxLjQtMS44IDktNC42IDE4LTE1LjIgMjQuNC0yOS4yIDExLjQtMjQuMiA3LjQtMzEuMi0yMC42LTM2LjgtOS44LTItMjkuMi04LTQzLjQtMTMuNC00MC40LTE1LjgtNjQuNi0zNy40LTg1LjQtNzYuMi0xMS42LTIxLjgtMTUuNC0zMy0xOC4yLTUzLjYtNC4yLTMyLjItNC44LTYwLjItMS40LTg0IDMuNC0yMy44IDYuOC0zMi44IDIwLjItNTQgNC02IDguOC0xNS42IDExLTIxLjQgMy44LTEwIDMuOC0xMS42IDEtMzAtNS4yLTM0LjItMy4yLTUyLjQgNy42LTcwLjIgNy4yLTEyLjIgMTUtMTcuMiAyNC4yLTE1LjggMTIuOCAyLjIgNTIgMTcuNCA2Ni44IDI2LjIgMjYgMTUgMjkgMTUuNCA4Mi40IDcuMiAyNC42LTMuOCAzMy44LTQuMiA2MC0zLjIgMTcgLjYgNDEuNCAzIDU0IDUuMiAzOC40IDYuNiA0OS42IDUuMiA3My0xMCA2LjYtNC4yIDE3LjQtOS40IDI0LTExLjYgNi42LTIuMiAxNi01LjggMjEtOC4yIDEzLTYgMjgtNS42IDM1LjYuOCAxMi40IDEwLjQgMTguNiA0MS40IDE0LjQgNzEuNi00LjQgMzAuNi0zIDM5LjQgOC40IDUzLjggMy40IDQuNCAxMS4yIDE5LjIgMTcuNCAzMy4yTDc3NSA0NDN2NzhsLTEwIDI4Yy0xNS4yIDQzLjItMzYuOCA3My4yLTY2LjIgOTIuOC0xMy40IDguOC01NyAyNS40LTc2LjggMjktMjguMiA1LjItMzMuMiAxMi42LTIyIDMyLjIgMTEuMiAxOS40IDEyLjQgMzIuOCAxMS42IDEyOS42bC0uNiA4NS44IDUuNCA0LjZjMy42IDMgOS4yIDUuMiAxNiA2IDUuOC44IDYwLjIgMSAxMjAuNi42IDEwOC40LS42IDExMC4yLS42IDExOS01IDI0LTExLjYgNDAtMjcuNCA1MS42LTUwLjZsNS40LTExIC42LTM0N2MuNC0yMjMtLjItMzUzLjQtMS40LTM2NS0yLTE3LTIuNi0xOC42LTEzLTM0LTEwLjYtMTUuNC0yMi44LTI2LjItNDMuMi0zNy4yLTQuMi0yLjQtNjQuNi0yLjgtMzY2LTMuMi0xOTguNiAwLTM2NCAuNC0zNjcuNiAxLjR6Ii8+PC9zdmc+);
-    }
-    
-    
-    
-    .footer-sns-zhihu {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzYuOCA3OC44Yy04LjYgMi44LTI0IDEyLjQtMzMuNiAyMS04LjYgNy44LTIxLjQgMjcuOC0yNC40IDM3LjgtNC4yIDE0LTQgNzIzLjQgMCA3MzMuNCA4LjYgMjAuNiAzNi44IDQ4LjYgNTYgNTUuNiA5IDMuNCA3NDcuNCAzLjQgNzU2LjQgMCAxOS44LTcuMiA0OS0zNi42IDU2LTU2LjIgMi4yLTYgMi42LTc1LjYgMi44LTM2Ni40IDAtMjMzLjgtLjYtMzYxLjQtMi0zNjYtMS4yLTMuOC02LjYtMTMuOC0xMi4yLTIyLjItOC4yLTEyLjItMTMuNC0xNy40LTI1LjgtMjUuNi04LjQtNS44LTE5LTExLjQtMjMuMi0xMi4yLTQuNi0xLjItMTYzLjItMS44LTM3NC44LTEuOC0yOTMgMC0zNjguNi42LTM3NS4yIDIuNnptMTkwIDE0NS42YzUuNCA3LjYgNCAxNy40LTQuOCAzMS42LTkuOCAxNi0xMC44IDI3LjQtMyAzNSAyLjYgMi44IDYuNCA1IDguNCA1czM3LjguNCA3OS42LjZjNjggLjQgNzYuNi44IDgyLjQgMy44IDkuMiA1IDEyLjYgMTEgMTIuNiAyMiAwIDctMS4yIDEwLjgtNC44IDE1bC00LjggNS40LTM4IC4yYy01My44IDAtNTMuOCAwLTU1LjQgNTEuMi0uNiAxOC0xLjYgNDIuOC0yLjIgNTUtMS4yIDIyLjguNiAzMS42IDcuNiAzNi4yIDEuNC44IDIyLjIgMiA0NiAyLjZsNDMuMiAxIDguOCA2YzE1LjQgMTAuOCAxNy44IDI5LjIgNSAzNy01LjggMy42LTEwLjIgNC01MS44IDQtMzEgMC00NyAuOC01MC42IDIuNC03IDMuMi0xNC4yIDE3LjYtMTcuMiAzNC40LTMuMiAxNi42LTEgMjEuOCA5LjYgMjUuMiAxMy40IDQuMiAyMS44IDExLjIgNDkgNDEuNCAzNSAzOC44IDM2LjYgNDEgNDEuOCA1OC44IDcgMjMuOCAyLjIgNDEuOC0xMS40IDQxLjgtNy42IDAtMTItMy0yMS0xNC42LTEzLjgtMTcuNC01NC40LTY1LjgtNjItNzMuOC0xNS4yLTE2LTI5LjQtNS44LTM4LjggMjcuNC0xLjggNi42LTguOCAyMy4yLTE1LjYgMzctMTAuOCAyMi0xNCAyNi44LTI3LjQgMzkuNi0xOS42IDE5LjItMjYuNCAyMy01My42IDI5LjYtMjcuMiA2LjQtMzcgNS42LTM4LTMuNi0xLTguNCA0LjQtMTYuNCAyMC0yOSAxNi0xMyAzNi44LTM2LjYgNDUuMi01MS40IDMtNS4yIDguMi0xMy44IDExLjYtMTkgMy40LTUgMTEuOC0yMC40IDE4LjYtMzQuMiAxMC0yMCAxMy42LTI5LjQgMTcuMi00NyAyLjYtMTIuMiA2LjItMjUuNCA3LjgtMjkuNCA0LTkuNCA0LTIxLjQuMi0yNy01LjItNy40LTE2LTguOC02Mi42LTguNC01MC40LjQtNTUuMi0uOC01Ny42LTEzLjItMS44LTEwLjQgNS44LTI0LjQgMTYuMi0yOS44IDcuNC0zLjggMTEuOC00LjIgNTYuMi00LjhsNDguNC0uOCA0LjYtNWM0LjgtNSA0LjgtNSA1LTYxLjYgMC0zNS4yLS44LTU5LjItMi02My4yLTMuOC0xMS4yLTExLTE0LjgtMzAuMi0xNC44cy0yMS40IDEuNC0zMS4yIDE4LjJjLTguMiAxNC40LTIwLjYgMjguOC0zMy4yIDM4LjgtMTMuMiAxMC40LTIxLjYgMTMtMjggOS04LjQtNS42LTUuMi0yMy4yIDguMi00My4yIDQtNi40IDkuMi0xOC42IDEyLjItMjkuNiAzLTEwLjIgNy40LTIzLjIgMTAtMjkgMi40LTUuNiA2LTE2LjggOC0yNC42IDUuNi0yMy42IDI0LTUwLjggMzkuNC01OC40IDExLjItNS40IDE4LjYtNS40IDIyLjQuMnptNDUyIDY4LjJjMTEuOCA3LjggMTEuNC0uOCAxMC44IDIxNi0uNiAxODEtLjggMTk4LjgtNCAyMDMtNy42IDEwLjgtOS44IDExLjQtNTMuNiAxMi40bC00MSAxLTE0IDcuOGMtNy42IDQuMi0yMS4yIDEzLTI5LjggMTkuNC0yNS44IDE5LjItMzUgMTkuOC00My40IDMuMi0xMS44LTIzLjItMjMuNi0zMy4yLTM5LjQtMzMuNC04LjggMC0xMy42LTIuOC0xNy4yLTkuOC0yLjYtNC44LTMtMzMuOC0yLjYtMjA4LjguNC0xOTkuOC40LTIwMyA0LjQtMjA3LjQgMi4yLTIuNCA1LjgtNS4yIDgtNi4yIDIuMi0uOCA1MS44LTEuNCAxMTAtMS4yIDk5IC40IDEwNi42LjYgMTExLjggNHoiLz48cGF0aCBkPSJNNjA2LjggMzM3LjRjLTIuNC40LTYuNCAzLTkgNS44bC00LjggNS4yLS42IDE1Ni40LS40IDE1Ni40IDYuNCA5LjRjMy42IDUuMiA5LjggMTUuMiAxMy42IDIxLjggOCAxNC4yIDE2LjggMjAuNiAyNS42IDE4LjYgMy4yLS42IDEzLjgtNyAyMy42LTE0LjIgMjMtMTcgMjcuOC0xOSA1MC4yLTIwLjIgMTYuNC0xIDE5LjItMS44IDIzLjYtNi4yIDIuOC0yLjggNS02LjQgNS4yLTguMlY1MDUuNmMwLTExNi0uNi0xNTQuNC0yLjYtMTU4LjYtNC44LTEwLjQtOC40LTExLTcwLTEwLjgtMzEuMi4yLTU4LjYuOC02MC44IDEuMnoiLz48L3N2Zz4=);
-    }
-    
-    
-    
-</style>
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","https://cdn.jsdelivr.net/npm/hexo-material@1.5.0/source/css/material.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","https://cdn.jsdelivr.net/npm/hexo-material@1.5.0/source/css/style.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
-        <!-- Config CSS -->
+
+    
+
+    
+
+    <!-- Config CSS -->
 
 <!-- Other Styles -->
 <style>
   body, html {
     font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
 
   a {
@@ -247,8 +181,13 @@
 <!-- Theme Background Related-->
 
     <style>
-      body{
-        background-image: url(https://api.i-meto.com/bing?type=N);
+      body {
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
+        background-color: #fff;
       }
     </style>
 
@@ -275,22 +214,98 @@
 
 
 <!-- Import Font -->
+<!-- Import Roboto -->
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link href="https://fonts.proxy.ustclug.org/css?family=Roboto:300,400,500" rel="stylesheet">
 
 
-        <script>lsloader.load("js/jquery.min.js","/blog/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==")</script>
+<!-- Import Material Icon -->
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+
+
+
+
+    <!-- Import jQuery -->
     
+        <script>lsloader.load("jq_js","https://cdn.jsdelivr.net/npm/hexo-material@1.5.0/source/js/jquery.min.js", true)</script>
     
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://kingsongao.com/blog">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Vue简介 | We love, and we do">
+    <meta property="og:image" content="http://kingsongao.com/blog/favicon.ico" />
+    <meta property="og:description" content="Vue项目地址: Github、官网
+作者:yyx990803">
+    <meta property="og:article:tag" content="Vue"> <meta property="og:article:tag" content="前端开发"> 
+
+    
+        <meta property="article:published_time" content="Wed Apr 13 2016 12:47:46 GMT+0800" />
+        <meta property="article:modified_time" content="Fri Oct 20 2017 16:28:00 GMT+0800" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="Vue简介 | We love, and we do">
+    <meta name="twitter:description" content="Vue项目地址: Github、官网
+作者:yyx990803">
+    <meta name="twitter:image" content="http://kingsongao.com/blog/favicon.ico">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://kingsongao.com/blog" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://kingsongao.com/blog/blog/2016/04/13/Vue简介/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://kingsongao.com/blog/blog/2016/04/13/Vue简介/index.html",
+    "headline": "Vue简介",
+    "datePublished": "Wed Apr 13 2016 12:47:46 GMT+0800",
+    "dateModified": "Fri Oct 20 2017 16:28:00 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "kagawa",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://avatars3.githubusercontent.com/u/6930280?v=3&amp;s=460"
+        },
+        "description": "We love, and we do"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "We love, and we do",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/favicon.ico"
+        }
+    },
+    "keywords": ",Vue,前端开发Hexo, Blog, kagawa, kagawagao",
+    "description": "Vue项目地址: Github、官网
+作者:yyx990803",
+}
+</script>
+
+
+    
 
     <!-- Analytics -->
+    
+    
     
 
     <!-- Custom Head -->
     
-<link rel="stylesheet" href="/blog/css/prism.css" type="text/css"></head>
+
+</head>
 
 
     
@@ -330,18 +345,19 @@
     </div>
     -->
 
+
     <!-- Left aligned menu below button -->
+    
+    
     <button id="post-toc-trigger-btn"
         class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
-    
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Vue"><span class="post-toc-text">Vue</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于作者"><span class="post-toc-text">关于作者</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为什么叫Vue"><span class="post-toc-text">为什么叫Vue</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#兼容性"><span class="post-toc-text">兼容性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装"><span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#特点"><span class="post-toc-text">特点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#对比其他框架"><span class="post-toc-text">对比其他框架</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一个简单的Vue组件"><span class="post-toc-text">一个简单的Vue组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#何谓数据驱动"><span class="post-toc-text">何谓数据驱动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Vue-中的数据驱动"><span class="post-toc-text">Vue 中的数据驱动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组件化"><span class="post-toc-text">组件化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组件化代码"><span class="post-toc-text">组件化代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#异步更新"><span class="post-toc-text">异步更新</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Vue-的一些实例"><span class="post-toc-text">Vue 的一些实例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构建Vue-实例"><span class="post-toc-text">构建Vue 实例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#属性和方法"><span class="post-toc-text">属性和方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#生命周期函数"><span class="post-toc-text">生命周期函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#还有更多"><span class="post-toc-text">还有更多</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#生态"><span class="post-toc-text">生态</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#插件"><span class="post-toc-text">插件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开发单页应用？-路由是必须的"><span class="post-toc-text">开发单页应用？ 路由是必须的</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#需要像Flux一样管理数据？"><span class="post-toc-text">需要像Flux一样管理数据？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#And-more…"><span class="post-toc-text">And more…</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#UI-组件"><span class="post-toc-text">UI 组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开发工具"><span class="post-toc-text">开发工具</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Vue"><span class="post-toc-text">Vue</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于作者"><span class="post-toc-text">关于作者</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为什么叫Vue"><span class="post-toc-text">为什么叫Vue</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#兼容性"><span class="post-toc-text">兼容性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装"><span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#特点"><span class="post-toc-text">特点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#对比其他框架"><span class="post-toc-text">对比其他框架</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一个简单的Vue组件"><span class="post-toc-text">一个简单的Vue组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#何谓数据驱动"><span class="post-toc-text">何谓数据驱动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Vue-中的数据驱动"><span class="post-toc-text">Vue 中的数据驱动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组件化"><span class="post-toc-text">组件化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组件化代码"><span class="post-toc-text">组件化代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#异步更新"><span class="post-toc-text">异步更新</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Vue-的一些实例"><span class="post-toc-text">Vue 的一些实例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构建Vue-实例"><span class="post-toc-text">构建Vue 实例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#属性和方法"><span class="post-toc-text">属性和方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#生命周期函数"><span class="post-toc-text">生命周期函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#还有更多"><span class="post-toc-text">还有更多</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#生态"><span class="post-toc-text">生态</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#插件"><span class="post-toc-text">插件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开发单页应用？-路由是必须的"><span class="post-toc-text">开发单页应用？ 路由是必须的</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#需要像Flux一样管理数据？"><span class="post-toc-text">需要像Flux一样管理数据？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#And-More"><span class="post-toc-text">And More</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#UI-组件"><span class="post-toc-text">UI 组件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开发工具"><span class="post-toc-text">开发工具</span></a></li></ol></li></ol></li></ol>
     </ul>
     
-
 
 
 
@@ -358,17 +374,8 @@
                 
     <!-- Paradox Post Header -->
     
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script type="text/ls-javascript" id="post-thumbnail-script">
-    var randomNum = Math.floor(Math.random() * 19 + 1);
-
-    $('.post_thumbnail-random').attr('data-original', '/blog/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-</script>
-
-        
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/blog/images/19.jpg)">
     
             <p class="article-headline-p">
                 Vue简介
@@ -430,7 +437,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Vue简介&url=http://kingsongao.com/blog/blog/2016/04/13/Vue简介/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Vue简介&url=http://kingsongao.com/blog/blog/2016/04/13/Vue简介/index.html&pic=http://kingsongao.com/blog/favicon.ico&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -493,20 +500,18 @@
 <h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><p>Vue.js 不支持 <code>IE8</code> 及其以下版本，因为 Vue.js 使用了 IE8 不能实现的 <code>ECMAScript 5</code> 特性。</p>
 <p>Vue.js 支持所有兼容 <code>ECMASCript 5</code> 的浏览器。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
-<li><p>CDN版本</p>
-<p>可通过<a href="http://cdn.jsdelivr.net/vue/1.0.20/vue.min.js" target="_blank" rel="external">jsdelivr</a>或<a href="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.20/vue.min.js" target="_blank" rel="external">cndjs</a>获取</p>
-</li>
-<li><p>NPM版本</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> vue
+<li>CDN: 可通过 <a href="http://cdn.jsdelivr.net/vue/1.0.20/vue.min.js" target="_blank" rel="external">jsdelivr</a> 或 <a href="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.20/vue.min.js" target="_blank" rel="external">cndjs</a> 获取</li>
+<li>NPM 版本</li>
+</ul>
+<pre><code class="bash">npm install vue
 </code></pre>
-</li>
-<li><p>Bower</p>
-<pre class=" language-bash"><code class="language-bash">$ bower <span class="token function">install</span> vue
+<ul>
+<li>Bower</li>
+</ul>
+<pre><code class="bash">bower install vue
 </code></pre>
-</li>
-<li><p>AMD</p>
-<p>可直接使用上述版本</p>
-</li>
+<ul>
+<li>AMD:可直接使用上述版本</li>
 </ul>
 <p>注：在开发需要强制应用内容安全策略 (<code>CSP</code>) 的应用时，请使用<code>CSP</code>兼容版本，即<code>vue@csp</code></p>
 <h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
@@ -518,69 +523,71 @@
 <li>模块友好。 通过 NPM 或 Bower 安装，无缝融入你的工作流。</li>
 </ul>
 <h2 id="对比其他框架"><a href="#对比其他框架" class="headerlink" title="对比其他框架"></a>对比其他框架</h2><p>参见<a href="http://vuejs.org.cn/guide/comparison.html" target="_blank" rel="external">这里(官网)</a>以及知乎上的一些零零散散的问题的答案</p>
-<h2 id="一个简单的Vue组件"><a href="#一个简单的Vue组件" class="headerlink" title="一个简单的Vue组件"></a>一个简单的Vue组件</h2><figcaption><pre class=" language-html">&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;</figcaption><pre><code class="HTML</code>代码</p>"><code class="language-html">&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;</figcaption><pre><code class="HTML</code>代码</p>"></code></pre>
-<p><code>javascript</code>代码</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> exampleVM <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  el<span class="token punctuation">:</span> <span class="token string">'#demo'</span><span class="token punctuation">,</span>
-  data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    msg<span class="token punctuation">:</span> <span class="token string">'Hello world'</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<h2 id="一个简单的Vue组件"><a href="#一个简单的Vue组件" class="headerlink" title="一个简单的Vue组件"></a>一个简单的Vue组件</h2><ul>
+<li><code>HTML</code>代码</li>
+</ul>
+<pre><code class="html">&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
 </code></pre>
-<h2 id="何谓数据驱动"><a href="#何谓数据驱动" class="headerlink" title="何谓数据驱动"></a>何谓数据驱动</h2><ul>
-<li><p>核心：</p>
+<ul>
+<li><code>JavaScript</code> 代码</li>
+</ul>
+<pre><code class="javascript">var exampleVM = new Vue({
+  el: &#39;#demo&#39;,
+  data: {
+    msg: &#39;Hello world&#39;
+  }
+})
+</code></pre>
+<h2 id="何谓数据驱动"><a href="#何谓数据驱动" class="headerlink" title="何谓数据驱动"></a>何谓数据驱动</h2><p>核心：</p>
 <ul>
 <li>相对于程序逻辑，人类更擅长于处理数据。</li>
 </ul>
-</li>
-<li><p>优势：</p>
+<p>优势：</p>
 <ul>
 <li>可读性更强，处理流程一目了然。</li>
 <li>更容易修改，只需要更新数据即可修改内容，不需要修改流程。</li>
 <li>可重用</li>
 </ul>
-</li>
-</ul>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 普通处理</span>
+<pre><code class="javascript">// 普通处理
 
-<span class="token keyword">if</span> <span class="token punctuation">(</span>msg<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'Hello'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>msg<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'world'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'world'</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>msg<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'wow'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'wow'</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-<span class="token operator">...</span><span class="token operator">...</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token keyword">else</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'我不知道你在说什么'</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+if (msg.type === &#39;Hello&#39;) {
+  console.log(&#39;hello&#39;)
+} else if (msg.type === &#39;world&#39;) {
+  console.log(&#39;world&#39;)
+} else if (msg.type === &#39;wow&#39;) {
+  console.log(&#39;wow&#39;)
+}
+// ........
+else {
+  console.log(&#39;我不知道你在说什么&#39;)
+}
 
-<span class="token comment" spellcheck="true">// 数据驱动</span>
+// 数据驱动
 
-<span class="token keyword">const</span> msgType <span class="token operator">=</span> <span class="token punctuation">{</span>
-  hello<span class="token punctuation">:</span> <span class="token string">'hello'</span><span class="token punctuation">,</span>
-  world<span class="token punctuation">:</span> <span class="token string">'world'</span><span class="token punctuation">,</span>
-  wow<span class="token punctuation">:</span> <span class="token string">'wow'</span><span class="token punctuation">,</span>
-  <span class="token operator">...</span><span class="token operator">...</span><span class="token punctuation">.</span>
-<span class="token punctuation">}</span>
+const msgType = {
+  hello: &#39;hello&#39;,
+  world: &#39;world&#39;,
+  wow: &#39;wow&#39;,
+  .......
+}
 
-<span class="token keyword">if</span> <span class="token punctuation">(</span>msgType<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>type<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">msgType</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>type<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'我不知道你在说什么'</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+if (msgType.hasOwnProperty(msg.type)) {
+  console.log(msgType(msg.type))
+} else {
+  console.log(&#39;我不知道你在说什么&#39;)
+}
 </code></pre>
 <h2 id="Vue-中的数据驱动"><a href="#Vue-中的数据驱动" class="headerlink" title="Vue 中的数据驱动"></a>Vue 中的数据驱动</h2><p><img src="http://vuejs.org.cn/images/mvvm.png" alt="data-drive"></p>
 <p>通过特殊的语法将<code>DOM</code>绑定到底层数据。一旦创建绑定，<code>DOM</code>将会同步数据的更新而更新</p>
 <h2 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h2><p><img src="http://vuejs.org.cn/images/components.png" alt="组件化"></p>
 <p>同<code>React</code>一样，<code>Vue</code>也推荐<em>一切皆组件</em>的思维，这不只是框架的思想，更是一种趋势。在<a href="https://www.w3.org/wiki/WebComponents/" target="_blank" rel="external"><code>WebComponent</code></a>还没有开始使用的现在，我们应当去推动这个趋势。通过封装可重用的代码，使之成为一个组件，多处复用，减少代码量，尤其是重复代码</p>
-<h2 id="组件化代码"><a href="#组件化代码" class="headerlink" title="组件化代码"></a>组件化代码</h2><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>app-nav</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>app-nav</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>app-view</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>app-sidebar</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>app-sidebar</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>app-content</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>app-content</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>app-view</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<h2 id="组件化代码"><a href="#组件化代码" class="headerlink" title="组件化代码"></a>组件化代码</h2><pre><code class="html">&lt;div id=&quot;app&quot;&gt;
+  &lt;app-nav&gt;&lt;/app-nav&gt;
+  &lt;app-view&gt;
+    &lt;app-sidebar&gt;&lt;/app-sidebar&gt;
+    &lt;app-content&gt;&lt;/app-content&gt;
+  &lt;/app-view&gt;
+&lt;/div&gt;
 </code></pre>
 <p>相对于<code>WebComponent</code>，UI库提供的组件化的优势：</p>
 <ul>
@@ -595,85 +602,92 @@
 <li><a href="https://link.zhihu.com/?target=http%3A//vuejs.github.io/js-repaint-perfs/vue/" target="_blank" rel="external">Vue</a></li>
 <li><a href="https://link.zhihu.com/?target=http%3A//vuejs.github.io/js-repaint-perfs/react/" target="_blank" rel="external">React</a></li>
 </ul>
-<h1 id="Vue-的一些实例"><a href="#Vue-的一些实例" class="headerlink" title="Vue 的一些实例"></a>Vue 的一些实例</h1><h2 id="构建Vue-实例"><a href="#构建Vue-实例" class="headerlink" title="构建Vue 实例"></a>构建Vue 实例</h2><ul>
+<h2 id="Vue-的一些实例"><a href="#Vue-的一些实例" class="headerlink" title="Vue 的一些实例"></a>Vue 的一些实例</h2><h3 id="构建Vue-实例"><a href="#构建Vue-实例" class="headerlink" title="构建Vue 实例"></a>构建Vue 实例</h3><ul>
 <li><p>新的Vue 实例</p>
-<pre class=" language-javascript"><code class="language-javascript">  <span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// 选项</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<pre><code class="javascript">  var vm = new Vue({
+    // 选项
+  })
 </code></pre>
 </li>
 <li><p>可复用的组件</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> MyComponent <span class="token operator">=</span> Vue<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 扩展选项</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<pre><code class="javascript">var MyComponent = Vue.extend({
+  // 扩展选项
+})
 
-<span class="token comment" spellcheck="true">// 所有的 `MyComponent` 实例都将以预定义的扩展选项被创建</span>
-<span class="token keyword">var</span> myComponentInstance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+// 所有的 `MyComponent` 实例都将以预定义的扩展选项被创建
+var myComponentInstance = new MyComponent()
 </code></pre>
-<h2 id="属性和方法"><a href="#属性和方法" class="headerlink" title="属性和方法"></a>属性和方法</h2><p>Vue实例会代理其<code>data</code>对象中在构建时所有的属性，而在后续新添加的则不会代理</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> data <span class="token operator">=</span>
-<span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  data<span class="token punctuation">:</span> data
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-vm<span class="token punctuation">.</span>a <span class="token operator">===</span> data<span class="token punctuation">.</span>a <span class="token comment" spellcheck="true">// -> true</span>
-
-<span class="token comment" spellcheck="true">// 设置属性也会影响到原始数据</span>
-vm<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">2</span>
-data<span class="token punctuation">.</span>a <span class="token comment" spellcheck="true">// -> 2</span>
-
-<span class="token comment" spellcheck="true">// ... 反之亦然</span>
-data<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">3</span>
-vm<span class="token punctuation">.</span>a <span class="token comment" spellcheck="true">// -> 3</span>
-</code></pre>
-<p>除此之外，其他的一些方法和属性都会暴露出来，都带有<code>$</code>前缀。</p>
 </li>
 </ul>
-<h2 id="生命周期函数"><a href="#生命周期函数" class="headerlink" title="生命周期函数"></a>生命周期函数</h2><p>实例化：</p>
+<h3 id="属性和方法"><a href="#属性和方法" class="headerlink" title="属性和方法"></a>属性和方法</h3><p>  Vue实例会代理其<code>data</code>对象中在构建时所有的属性，而在后续新添加的则不会代理</p>
+<pre><code class="javascript">  var data =
+  var vm = new Vue({
+    data: data
+  })
+
+  vm.a === data.a // -&gt; true
+
+  // 设置属性也会影响到原始数据
+  vm.a = 2
+  data.a // -&gt; 2
+
+  // ... 反之亦然
+  data.a = 3
+  vm.a // -&gt; 3
+</code></pre>
+<p>  除此之外，其他的一些方法和属性都会暴露出来，都带有<code>$</code>前缀。</p>
+<h3 id="生命周期函数"><a href="#生命周期函数" class="headerlink" title="生命周期函数"></a>生命周期函数</h3><p>实例化：</p>
 <p><code>created</code> —&gt; <code>beforeCompile</code> —&gt; <code>compiled</code> —&gt; <code>ready</code></p>
 <p>销毁：</p>
-<p><code>beforeDestroy</code> —&gt; <code>destroyed</code></pre>
-<h2 id="还有更多"><a href="#还有更多" class="headerlink" title="还有更多"></a>还有更多</h2><p>还有很多诸如此类的东西，就不一一赘述，可在官方的文档上找到更为完善的例子和说明。</p>
+<p><code>beforeDestroy</code> —&gt; <code>destroyed</code></p>
+<h3 id="还有更多"><a href="#还有更多" class="headerlink" title="还有更多"></a>还有更多</h3><p>还有很多诸如此类的东西，就不一一赘述，可在官方的文档上找到更为完善的例子和说明。</p>
 <ul>
 <li><a href="vuejs.org">官网</a>  </li>
 <li><a href="https://github.com/vuejs/vue" target="_blank" rel="external">Github</a></li>
 <li><a href="http://zhuanlan.zhihu.com/evanyou/20302927" target="_blank" rel="external">介绍(中文版)</a></li>
 </ul>
-<h1 id="生态"><a href="#生态" class="headerlink" title="生态"></a>生态</h1><p>相较于<code>React</code>，<code>Vue</code>目前的生态圈还是很<em>嫩</em>。 但是….</p>
-<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p>可以通过开发插件的形式，来补充功能，是他从一个<code>库</code>完成到<code>框架</code>的进化</p>
+<h2 id="生态"><a href="#生态" class="headerlink" title="生态"></a>生态</h2><p>相较于<code>React</code>，<code>Vue</code>目前的生态圈还是很<em>嫩</em>。 但是….</p>
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><p>可以通过开发插件的形式，来补充功能，是他从一个<code>库</code>完成到<code>框架</code>的进化</p>
 <ul>
 <li>添加全局方法或属性</li>
 <li>添加全局资源：指令/过滤器/过渡等</li>
 <li>添加 Vue 实例方法，通过把它们添加到 Vue.prototype 上实现。</li>
 <li>一个库，提供自己的 API，同时提供上面提到的一个或多个功能</li>
 </ul>
-<h2 id="开发单页应用？-路由是必须的"><a href="#开发单页应用？-路由是必须的" class="headerlink" title="开发单页应用？ 路由是必须的"></a>开发单页应用？ 路由是必须的</h2><p><a href="https://github.com/vuejs/vue-router" target="_blank" rel="external">vue-router</a></p>
+<h3 id="开发单页应用？-路由是必须的"><a href="#开发单页应用？-路由是必须的" class="headerlink" title="开发单页应用？ 路由是必须的"></a>开发单页应用？ 路由是必须的</h3><p><a href="https://github.com/vuejs/vue-router" target="_blank" rel="external">vue-router</a></p>
 <p>安装：</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> vue-router --save
+<pre><code class="bash">npm install vue-router --save
 </code></pre>
 <p>使用：</p>
 <ul>
-<li>HTML或Template<pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!--主页面--></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-view</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-view</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token comment" spellcheck="true">&lt;!--路由跳转--></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>Go To <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">v-link</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Demo0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
-</code></pre>
-</li>
-<li>加载插件<br>```javascript<br>import VueRouter from ‘vue-router’</li>
+<li>HTML或Template</li>
 </ul>
-<p>Vue.use(VueRouter)</p>
-<pre><code>- 启动路由
-```javascript
-import Vue from &#39;vue&#39;
+<pre><code class="html">&lt;!--主页面--&gt;
+&lt;div id=&quot;app&quot;&gt;
+  &lt;router-view&gt;&lt;/router-view&gt;
+&lt;/div&gt;
+&lt;!--路由跳转--&gt;
+&lt;h2&gt;Go To &lt;a v-link=&quot;&quot;&gt;Demo0&lt;/a&gt;&lt;/h2&gt;
+</code></pre>
+<ul>
+<li>加载插件</li>
+</ul>
+<pre><code class="javascript">import VueRouter from &#39;vue-router&#39;
+
+Vue.use(VueRouter)
+</code></pre>
+<ul>
+<li>启动路由</li>
+</ul>
+<pre><code class="javascript">import Vue from &#39;vue&#39;
 import Router from &#39;./routes/index&#39;
 const App = Vue.extend({})
 
 Router.start(App, &#39;#app&#39;)
-</code></pre><h2 id="需要像Flux一样管理数据？"><a href="#需要像Flux一样管理数据？" class="headerlink" title="需要像Flux一样管理数据？"></a>需要像<code>Flux</code>一样管理数据？</h2><p>官方根据<code>Flux</code>架构实现了一套为Vue所能使用： <a href="https://github.com/vuejs/vuex" target="_blank" rel="external"><code>Vux</code></a></p>
+</code></pre>
+<h3 id="需要像Flux一样管理数据？"><a href="#需要像Flux一样管理数据？" class="headerlink" title="需要像Flux一样管理数据？"></a>需要像<code>Flux</code>一样管理数据？</h3><p>官方根据<code>Flux</code>架构实现了一套为Vue所能使用： <a href="https://github.com/vuejs/vuex" target="_blank" rel="external"><code>Vux</code></a></p>
 <p>具体使用参见Demo</p>
-<h2 id="And-more…"><a href="#And-more…" class="headerlink" title="And more…"></a>And more…</h2><ul>
+<h3 id="And-More"><a href="#And-More" class="headerlink" title="And More"></a>And More</h3><ul>
 <li>简单脚手架。 <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="external"><code>vue-cli</code></a></li>
 <li>模块化开发。 <a href="https://github.com/vuejs/vue-loader" target="_blank" rel="external"><code>vue-loader</code></a> + <code>.vue</code> + <a href="https://github.com/vuejs/awesome-vue#syntax-highlighting" target="_blank" rel="external">其他语法高亮编辑器插件</a></li>
 <li>RESTful。<a href="https://github.com/vuejs/vue-resource" target="_blank" rel="external"><code>vue-resource</code></a></li>
@@ -682,17 +696,28 @@ Router.start(App, &#39;#app&#39;)
 <li>……</li>
 </ul>
 <p>你可以在<a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="external">awesome-vue</a>中找到你想要的插件。</p>
-<h2 id="UI-组件"><a href="#UI-组件" class="headerlink" title="UI 组件"></a>UI 组件</h2><ul>
+<h3 id="UI-组件"><a href="#UI-组件" class="headerlink" title="UI 组件"></a>UI 组件</h3><ul>
 <li><a href="http://yuche.github.io/vue-strap/" target="_blank" rel="external">VueStrap</a>: 基于BootStrap</li>
 <li><a href="https://github.com/okoala/vue-antd" target="_blank" rel="external">vue-antd</a>: 基于 ant-design</li>
 <li><a href="https://github.com/lepture/vui" target="_blank" rel="external">VUI</a>：适用移动端</li>
 </ul>
 <p>还有很多可在<a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="external">awesome-vue</a>中找到</p>
-<h2 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h2><ul>
+<h3 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h3><ul>
 <li><a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="external">vue-devtools</a></li>
 <li><a href="https://github.com/vuejs/awesome-vue#development-tools" target="_blank" rel="external">awesome-vue</a></li>
 </ul>
 
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            文章均采用 <a href="/creativecommons.html" target="_blank">CC BY-NC-SA 3.0</a> 许可协议，转载请注明出处。
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="http://kingsongao.com/blog/2016/04/13/Vue简介/">http://kingsongao.com/blog/2016/04/13/Vue简介/</a>
+                    </p>
+                </blockquote>
+        
     
 
     
@@ -817,36 +842,39 @@ Router.start(App, &#39;#app&#39;)
 
     <!-- Categories  -->
     
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
-                
-                分类
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <li>
-                <a class="sidebar_archives-link" href="/blog/categories/技术/">技术<span class="sidebar_archives-count">4</span></a>
-            </ul>
-        </li>
-        
-    
 
     <!-- Pages  -->
     
         <li>
             <a href="/blog/tags" title="标签">
                 
-                    <i class="material-icons sidebar-material-icons">inbox</i>
+                    <i class="material-icons sidebar-material-icons">bookmark</i>
                 
                 标签
             </a>
         </li>
         
     
+        <li>
+            <a href="/blog/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">timeline</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
 
     <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">5</span>
+            </a>
+        </li>
+        
     
 </ul>
 
@@ -963,12 +991,16 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Telegram -->
     
+    
+    <!-- V2EX -->
+    
 </div>
 
 
         <!--Copyright-->
         <div id="copyright">
             Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>We love, and we do
+            
         </div>
 
         <!-- Paradox Footer Right Section -->
@@ -991,15 +1023,17 @@ It will not impact the appearance and can give developers a lot of support :)
 </footer>
 
 
-                    <!-- Import File -->
+                    <!-- Import JS File -->
 
-
-    <script>lsloader.load("js/lazyload.min.js","/blog/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==")</script>
-    <script>lsloader.load("js/js.min.js","/blog/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+    <script>lsloader.load("lazyload_js","https://cdn.jsdelivr.net/npm/hexo-material@1.5.0/source/js/lazyload.min.js", true)</script>
 
 
 
-    <script>lsloader.load("js/nprogress.js","/blog/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+    <script>lsloader.load("js_js","https://cdn.jsdelivr.net/npm/hexo-material@1.5.0/source/js/js.min.js", true)</script>
+
+
+
+    <script>lsloader.load("np_js","https://cdn.jsdelivr.net/npm/hexo-material@1.5.0/source/js/nprogress.js", true)</script>
 
 
 <script type="text/ls-javascript" id="NProgress-script">
@@ -1044,15 +1078,41 @@ It will not impact the appearance and can give developers a lot of support :)
 	}
 </script>
 
-<!-- Window Load-->
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","https://cdn.jsdelivr.net/npm/hexo-material@1.5.0/source/js/hanabi-browser-bundle.js", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
 <script type="text/ls-javascript" id="window-load">
     $(window).on('load', function() {
         // Post_Toc parent position fixed
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',false);
+    
 </script>
 
 <!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?type=S');
+    });
+</script>
+
 
 <script type="text/ls-javascript" id="lazy-load">
     // Offer LazyLoad
@@ -1070,7 +1130,8 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 </script>
 
-<!-- Bing Background -->
+<!-- Custom Footer -->
+
 
 
 <script>
@@ -1082,7 +1143,7 @@ It will not impact the appearance and can give developers a lot of support :)
             lsloader.runInlineScript(item.id,item.id);
         }
     })()
-console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
 </script>
 
                 </main>

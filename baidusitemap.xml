@@ -4,8 +4,52 @@
 
     
   <url>
+    <loc>http://kingsongao.com/blog/blog/2016/04/13/Vue%E7%AE%80%E4%BB%8B/</loc>
+    <lastmod>2017-10-20T08:28:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>Vue简介</title>
+        <pubTime>2016-04-13T04:47:46.000Z</pubTime>
+        
+        <tag>Vue</tag>
+         
+        <tag>前端开发</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术" url="http://kingsongao.com/blog/blog/categories/%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://kingsongao.com/blog/blog/2016/07/17/async-await%E7%AE%80%E4%BB%8B/</loc>
+    <lastmod>2017-10-20T08:26:23.852Z</lastmod>
+    <data>
+        <display>
+        <title>async/await简介</title>
+        <pubTime>2016-07-17T09:00:35.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>ES Next</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术" url="http://kingsongao.com/blog/blog/categories/%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://kingsongao.com/blog/blog/2016/07/24/vuex-v2-%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%98%E5%8C%96/</loc>
-    <lastmod>2017-10-20T06:49:03.000Z</lastmod>
+    <lastmod>2017-10-20T08:26:11.945Z</lastmod>
     <data>
         <display>
         <title>vuex v2 中的一些变化</title>
@@ -28,70 +72,8 @@
 
     
   <url>
-    <loc>http://kingsongao.com/blog/blog/2017/10/20/%E5%89%8D%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81/</loc>
-    <lastmod>2017-10-20T06:48:06.721Z</lastmod>
-    <data>
-        <display>
-        <title>前端工作流</title>
-        <pubTime>2017-10-20T06:44:32.000Z</pubTime>
-        
-        <tag>经验总结</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
-    <loc>http://kingsongao.com/blog/blog/2016/04/13/Vue%E7%AE%80%E4%BB%8B/</loc>
-    <lastmod>2017-08-01T14:48:37.000Z</lastmod>
-    <data>
-        <display>
-        <title>Vue简介</title>
-        <pubTime>2016-04-13T04:47:46.000Z</pubTime>
-        
-        <tag>Vue</tag>
-         
-        <tag>前端开发</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术" url="http://kingsongao.com/blog/blog/categories/%E6%8A%80%E6%9C%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://kingsongao.com/blog/blog/2016/07/17/async-await%E7%AE%80%E4%BB%8B/</loc>
-    <lastmod>2017-08-01T14:48:37.000Z</lastmod>
-    <data>
-        <display>
-        <title>async/await简介</title>
-        <pubTime>2016-07-17T09:00:35.000Z</pubTime>
-        
-        <tag>前端开发</tag>
-         
-        <tag>ES Next</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术" url="http://kingsongao.com/blog/blog/categories/%E6%8A%80%E6%9C%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://kingsongao.com/blog/blog/2016/10/05/%E5%85%B3%E4%BA%8E-vue-2/</loc>
-    <lastmod>2017-08-01T14:48:37.000Z</lastmod>
+    <lastmod>2017-10-20T08:25:40.790Z</lastmod>
     <data>
         <display>
         <title>关于 vue@2</title>
@@ -110,5 +92,24 @@
     </data>
     </url>
 
+    
+  <url>
+    <loc>http://kingsongao.com/blog/blog/2017/10/20/%E5%89%8D%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81/</loc>
+    <lastmod>2017-10-20T08:24:52.816Z</lastmod>
+    <data>
+        <display>
+        <title>前端工作流</title>
+        <pubTime>2017-10-20T06:44:32.000Z</pubTime>
+        
+        <tag>经验总结</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
     
 </urlset>
