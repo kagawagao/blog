@@ -538,7 +538,7 @@
         randomNum = Math.floor(Math.random() * 19 + 1);
 
         locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', 'gallery/' + randomNum + '.png');
+        locatePost.children('.post_thumbnail-random').attr('data-original', 'images/' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
 
         locatePost = locatePost.next();
@@ -590,7 +590,7 @@
         <ul id="settings-dropdown" class="dropdown-menu">
             
                 <li>
-                    <a href="#" target="_blank" title="Email Me">
+                    <a href="mailto:kingsongao1221@gmail.com" target="_blank" title="Email Me">
                         
                             <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         
@@ -634,15 +634,30 @@
 
     <!-- Categories  -->
     
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/blog/categories/技术/">技术<span class="sidebar_archives-count">4</span></a>
+            </ul>
+        </li>
+        
+    
 
     <!-- Pages  -->
     
         <li>
-            <a href="/about" title="关于">
+            <a href="/blog/tags" title="标签">
                 
-                    <i class="material-icons sidebar-material-icons">person</i>
+                    <i class="material-icons sidebar-material-icons">inbox</i>
                 
-                关于
+                标签
             </a>
         </li>
         
@@ -666,17 +681,8 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Sidebar Divider -->
 
-    <div class="sidebar-divider"></div>
-
 
 <!-- Theme Material -->
-
-    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-            主题 - Material
-            <span class="sidebar-badge badge-circle">i</span>
-        </div>
-    </a>
 
 
 <!-- Help & Support -->
@@ -877,7 +883,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <script type="text/ls-javascript" id="Bing-Background-script">
     queue.offer(function(){
-        $('body').attr('data-original', 'https://api.i-meto.com/bing?[object Object]');
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?color=blue');
     });
 </script>
 
