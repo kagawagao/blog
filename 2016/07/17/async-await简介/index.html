@@ -60,9 +60,9 @@
     <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
 
     <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="/blog/favicon.ico">
-    <link rel="icon" sizes="192x192" href="/blog/favicon.ico">
-    <link rel="apple-touch-icon" href="/blog/favicon.ico">
+    <link rel="icon shortcut" type="image/ico" href="/favicon.ico">
+    <link rel="icon" sizes="192x192" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/favicon.ico">
 
     <!--iOS -->
     <meta name="apple-mobile-web-app-title" content="Title">
@@ -231,10 +231,10 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://kingsongao.com/blog">
+    <meta property="og:url" content="http://blog.kingsongao.com">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="async/await简介 | We love, and we do">
-    <meta property="og:image" content="http://kingsongao.com/blog/favicon.ico" />
+    <meta property="og:image" content="http://blog.kingsongao.com/favicon.ico" />
     <meta property="og:description" content="WTF!!!ECMAScript 7 发布，竟然没有async/await［懵逼脸］。相较于generator，我更偏爱于async/await，我为此还将所有的promise.then和generator全改为async/await［再次懵逼］。">
     <meta property="og:article:tag" content="前端开发"> <meta property="og:article:tag" content="ES Next"> 
 
@@ -246,13 +246,13 @@
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="async/await简介 | We love, and we do">
     <meta name="twitter:description" content="WTF!!!ECMAScript 7 发布，竟然没有async/await［懵逼脸］。相较于generator，我更偏爱于async/await，我为此还将所有的promise.then和generator全改为async/await［再次懵逼］。">
-    <meta name="twitter:image" content="http://kingsongao.com/blog/favicon.ico">
+    <meta name="twitter:image" content="http://blog.kingsongao.com/favicon.ico">
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="http://kingsongao.com/blog" />
+    <meta name="twitter:url" content="http://blog.kingsongao.com" />
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://kingsongao.com/blog/blog/2016/07/17/async-await简介/index.html" />
+        <link rel="canonical" href="http://blog.kingsongao.com/2016/07/17/async-await简介/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -264,7 +264,7 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://kingsongao.com/blog/blog/2016/07/17/async-await简介/index.html",
+    "mainEntityOfPage": "http://blog.kingsongao.com/2016/07/17/async-await简介/index.html",
     "headline": "async/await简介",
     "datePublished": "Sun Jul 17 2016 17:00:35 GMT+0800",
     "dateModified": "Fri Oct 20 2017 16:26:23 GMT+0800",
@@ -417,7 +417,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/blog/tags/ES-Next/">ES Next</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/blog/tags/前端开发/">前端开发</a>
+        <a class="post_tag-link" href="/tags/ES-Next/">ES Next</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/前端开发/">前端开发</a>
     </ul>
     
 
@@ -433,7 +433,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=async/await简介&url=http://kingsongao.com/blog/blog/2016/07/17/async-await简介/index.html&pic=http://kingsongao.com/blog/favicon.ico&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=async/await简介&url=http://blog.kingsongao.com/2016/07/17/async-await简介/index.html&pic=http://blog.kingsongao.com/favicon.ico&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -442,7 +442,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=async/await简介&url=http://kingsongao.com/blog/blog/2016/07/17/async-await简介/index.html&via=kagawa" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=async/await简介&url=http://blog.kingsongao.com/2016/07/17/async-await简介/index.html&via=kagawa" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -451,7 +451,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://kingsongao.com/blog/blog/2016/07/17/async-await简介/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.kingsongao.com/2016/07/17/async-await简介/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -460,7 +460,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://kingsongao.com/blog/blog/2016/07/17/async-await简介/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://blog.kingsongao.com/2016/07/17/async-await简介/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -486,7 +486,7 @@
     
         <h1 id="WTF"><a href="#WTF" class="headerlink" title="WTF!!!"></a>WTF!!!</h1><p>ECMAScript 7 发布，竟然没有<code>async/await</code>［懵逼脸］。相较于<code>generator</code>，我更偏爱于<code>async/await</code>，我为此还将所有的<code>promise.then</code>和<code>generator</code>全改为<code>async/await</code>［再次懵逼］。</p>
 <a id="more"></a>
-<h1 id="什么是async-await"><a href="#什么是async-await" class="headerlink" title="什么是async/await?"></a>什么是<code>async/await</code>?</h1><p><code>async/await</code>被定义在这个<a href="https://github.com/tc39/ecmascript-asyncawait" target="_blank" rel="external">仓库中</a>，相较于<code>generator</code>，我们利用<code>async/await</code>可以以看起来更为同步的方式写出异步代码，且可读性更高。比如：</p>
+<h1 id="什么是async-await"><a href="#什么是async-await" class="headerlink" title="什么是async/await?"></a>什么是<code>async/await</code>?</h1><p><code>async/await</code>被定义在这个<a href="https://github.com/tc39/ecmascript-asyncawait" target="_blank" rel="noopener">仓库中</a>，相较于<code>generator</code>，我们利用<code>async/await</code>可以以看起来更为同步的方式写出异步代码，且可读性更高。比如：</p>
 <pre><code class="javascript">// 一个异步操作
 const asyncOp = () =&gt; new Promise((resolve, reject) =&gt; {
   console.log(2)
@@ -538,7 +538,7 @@ demo.next()
                             文章均采用 <a href="/creativecommons.html" target="_blank">CC BY-NC-SA 3.0</a> 许可协议，转载请注明出处。
                         </strong>
                         <br>
-                        <strong>本文链接：</strong><a href="http://kingsongao.com/blog/2016/07/17/async-await简介/">http://kingsongao.com/blog/2016/07/17/async-await简介/</a>
+                        <strong>本文链接：</strong><a href="http://blog.kingsongao.com/2016/07/17/async-await简介/">http://blog.kingsongao.com/2016/07/17/async-await简介/</a>
                     </p>
                 </blockquote>
         
@@ -560,7 +560,7 @@ demo.next()
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/blog/2016/07/24/vuex-v2-中的一些变化/" id="post_nav-newer" class="prev-content">
+        <a href="/2016/07/24/vuex-v2-中的一些变化/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -574,7 +574,7 @@ demo.next()
 
     <!-- Next Nav -->
     
-        <a href="/blog/2016/04/13/Vue简介/" id="post_nav-older" class="next-content">
+        <a href="/2016/04/13/Vue简介/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -597,7 +597,7 @@ demo.next()
 <aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
     <div id="sidebar-main">
         <!-- Sidebar Header -->
-        <div class="sidebar-header header-cover" style="background-image: url(/blog/images/4.jpg);">
+        <div class="sidebar-header header-cover" style="background-image: url(/images/4.jpg);">
     <!-- Top bar -->
     <div class="top-bar"></div>
 
@@ -644,7 +644,7 @@ demo.next()
     <!-- Homepage -->
     
         <li id="sidebar-first-li">
-            <a href="/blog/">
+            <a href="/">
                 
                     <i class="material-icons sidebar-material-icons">home</i>
                 
@@ -666,7 +666,7 @@ demo.next()
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/blog/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/blog/archives/2016/10/">十月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/blog/archives/2016/07/">七月 2016<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/blog/archives/2016/04/">四月 2016<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -905,7 +905,7 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/blog/css/uc.css">');
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>

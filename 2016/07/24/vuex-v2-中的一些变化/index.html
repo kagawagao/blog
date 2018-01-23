@@ -60,9 +60,9 @@
     <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
 
     <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="/blog/favicon.ico">
-    <link rel="icon" sizes="192x192" href="/blog/favicon.ico">
-    <link rel="apple-touch-icon" href="/blog/favicon.ico">
+    <link rel="icon shortcut" type="image/ico" href="/favicon.ico">
+    <link rel="icon" sizes="192x192" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/favicon.ico">
 
     <!--iOS -->
     <meta name="apple-mobile-web-app-title" content="Title">
@@ -231,10 +231,10 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://kingsongao.com/blog">
+    <meta property="og:url" content="http://blog.kingsongao.com">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="vuex v2 中的一些变化 | We love, and we do">
-    <meta property="og:image" content="http://kingsongao.com/blog/favicon.ico" />
+    <meta property="og:image" content="http://blog.kingsongao.com/favicon.ico" />
     <meta property="og:description" content="由于之前身体抱恙休假在家，于是对 vue/vuex 便没有多少关注，在上周回来投入到工作中时发现 vuex 2.0.0 相对于之前的版本有了部分变化，关于 vuex 最新版的设计在此 issue 中。">
     <meta property="og:article:tag" content="Vue"> <meta property="og:article:tag" content="前端开发"> <meta property="og:article:tag" content="Vuex"> 
 
@@ -246,13 +246,13 @@
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="vuex v2 中的一些变化 | We love, and we do">
     <meta name="twitter:description" content="由于之前身体抱恙休假在家，于是对 vue/vuex 便没有多少关注，在上周回来投入到工作中时发现 vuex 2.0.0 相对于之前的版本有了部分变化，关于 vuex 最新版的设计在此 issue 中。">
-    <meta name="twitter:image" content="http://kingsongao.com/blog/favicon.ico">
+    <meta name="twitter:image" content="http://blog.kingsongao.com/favicon.ico">
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="http://kingsongao.com/blog" />
+    <meta name="twitter:url" content="http://blog.kingsongao.com" />
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://kingsongao.com/blog/blog/2016/07/24/vuex-v2-中的一些变化/index.html" />
+        <link rel="canonical" href="http://blog.kingsongao.com/2016/07/24/vuex-v2-中的一些变化/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -264,7 +264,7 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://kingsongao.com/blog/blog/2016/07/24/vuex-v2-中的一些变化/index.html",
+    "mainEntityOfPage": "http://blog.kingsongao.com/2016/07/24/vuex-v2-中的一些变化/index.html",
     "headline": "vuex v2 中的一些变化",
     "datePublished": "Sun Jul 24 2016 22:51:22 GMT+0800",
     "dateModified": "Fri Oct 20 2017 16:26:11 GMT+0800",
@@ -417,7 +417,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/blog/tags/Vue/">Vue</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/blog/tags/Vuex/">Vuex</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/blog/tags/前端开发/">前端开发</a>
+        <a class="post_tag-link" href="/tags/Vue/">Vue</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Vuex/">Vuex</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/前端开发/">前端开发</a>
     </ul>
     
 
@@ -433,7 +433,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=vuex v2 中的一些变化&url=http://kingsongao.com/blog/blog/2016/07/24/vuex-v2-中的一些变化/index.html&pic=http://kingsongao.com/blog/favicon.ico&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=vuex v2 中的一些变化&url=http://blog.kingsongao.com/2016/07/24/vuex-v2-中的一些变化/index.html&pic=http://blog.kingsongao.com/favicon.ico&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -442,7 +442,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=vuex v2 中的一些变化&url=http://kingsongao.com/blog/blog/2016/07/24/vuex-v2-中的一些变化/index.html&via=kagawa" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=vuex v2 中的一些变化&url=http://blog.kingsongao.com/2016/07/24/vuex-v2-中的一些变化/index.html&via=kagawa" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -451,7 +451,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://kingsongao.com/blog/blog/2016/07/24/vuex-v2-中的一些变化/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.kingsongao.com/2016/07/24/vuex-v2-中的一些变化/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -460,7 +460,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://kingsongao.com/blog/blog/2016/07/24/vuex-v2-中的一些变化/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://blog.kingsongao.com/2016/07/24/vuex-v2-中的一些变化/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -484,7 +484,7 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>由于之前身体抱恙休假在家，于是对 <code>vue/vuex</code> 便没有多少关注，在上周回来投入到工作中时发现 <code>vuex</code> 2.0.0 相对于之前的版本有了部分变化，关于 <code>vuex</code> 最新版的设计在此 <a href="https://github.com/vuejs/vuex/issues/236" target="_blank" rel="external">issue</a> 中。</p>
+        <p>由于之前身体抱恙休假在家，于是对 <code>vue/vuex</code> 便没有多少关注，在上周回来投入到工作中时发现 <code>vuex</code> 2.0.0 相对于之前的版本有了部分变化，关于 <code>vuex</code> 最新版的设计在此 <a href="https://github.com/vuejs/vuex/issues/236" target="_blank" rel="noopener">issue</a> 中。</p>
 <a id="more"></a>
 <h2 id="命名语义化"><a href="#命名语义化" class="headerlink" title="命名语义化"></a>命名语义化</h2><hr>
 <p>首先就是针对命名的语义化，主要集中在两个名词上：<code>commit</code> 与 <code>dispatch</code>。</p>
@@ -612,7 +612,7 @@ export default {
   }
 }
 </code></pre>
-<p>更多使用方法，请查看这个<a href="https://github.com/vuejs/vuex/issues/236" target="_blank" rel="external">issue</a></p>
+<p>更多使用方法，请查看这个<a href="https://github.com/vuejs/vuex/issues/236" target="_blank" rel="noopener">issue</a></p>
 <p>另外 <code>vuex@2</code> 可能会随着 <code>vue@2</code> 一起发布，目前都处在 <code>beta</code> 阶段，欢迎入坑！</p>
 
         
@@ -622,7 +622,7 @@ export default {
                             文章均采用 <a href="/creativecommons.html" target="_blank">CC BY-NC-SA 3.0</a> 许可协议，转载请注明出处。
                         </strong>
                         <br>
-                        <strong>本文链接：</strong><a href="http://kingsongao.com/blog/2016/07/24/vuex-v2-中的一些变化/">http://kingsongao.com/blog/2016/07/24/vuex-v2-中的一些变化/</a>
+                        <strong>本文链接：</strong><a href="http://blog.kingsongao.com/2016/07/24/vuex-v2-中的一些变化/">http://blog.kingsongao.com/2016/07/24/vuex-v2-中的一些变化/</a>
                     </p>
                 </blockquote>
         
@@ -644,7 +644,7 @@ export default {
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/blog/2016/10/05/关于-vue-2/" id="post_nav-newer" class="prev-content">
+        <a href="/2016/10/05/关于-vue-2/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -658,7 +658,7 @@ export default {
 
     <!-- Next Nav -->
     
-        <a href="/blog/2016/07/17/async-await简介/" id="post_nav-older" class="next-content">
+        <a href="/2016/07/17/async-await简介/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -681,7 +681,7 @@ export default {
 <aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
     <div id="sidebar-main">
         <!-- Sidebar Header -->
-        <div class="sidebar-header header-cover" style="background-image: url(/blog/images/4.jpg);">
+        <div class="sidebar-header header-cover" style="background-image: url(/images/4.jpg);">
     <!-- Top bar -->
     <div class="top-bar"></div>
 
@@ -728,7 +728,7 @@ export default {
     <!-- Homepage -->
     
         <li id="sidebar-first-li">
-            <a href="/blog/">
+            <a href="/">
                 
                     <i class="material-icons sidebar-material-icons">home</i>
                 
@@ -750,7 +750,7 @@ export default {
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/blog/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/blog/archives/2016/10/">十月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/blog/archives/2016/07/">七月 2016<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/blog/archives/2016/04/">四月 2016<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -989,7 +989,7 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/blog/css/uc.css">');
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>
