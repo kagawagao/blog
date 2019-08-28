@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -52,15 +52,15 @@
     <link rel="icon shortcut" type="image/ico" href="/favicon.ico">
     <link rel="icon" href="/favicon.ico">
 
-    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="telephone=no">
     <meta name="description" itemprop="description" content="Vue项目地址: Github、官网
 作者:yyx990803">
-    <meta name="keywords" content="Hexo, Blog, kagawa, kagawagao,前端开发,Vue">
+    <meta name="keywords" content="Hexo, Blog, kagawa, kagawagao,Vue,前端开发">
     <meta name="theme-color" content="#03A9F4">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -224,7 +224,7 @@
     <link rel="apple-touch-icon" href="/favicon.ico">
 
     <!-- Site Verification -->
-    <meta name="google-site-verification" content="InY9uB5AcU-qvYvD3iW7iXSk3k1sHsPdeWVH049hz6" />
+    <meta name="google-site-verification" content="InY9uB5AcU-qvYvD3iW7iXSk3k1sHsPdeWVH049hz6">
     
 
     <!-- RSS -->
@@ -237,7 +237,7 @@
     <meta property="og:image" content="/favicon.ico">
     <meta property="og:description" content="Vue项目地址: Github、官网
 作者:yyx990803">
-    <meta property="og:article:tag" content="前端开发"> <meta property="og:article:tag" content="Vue"> 
+    <meta property="og:article:tag" content="Vue"> <meta property="og:article:tag" content="前端开发"> 
 
     
         <meta property="article:published_time" content="Wed Apr 13 2016 12:47:46 GMT+0800">
@@ -249,7 +249,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://blog.kingsongao.com/2016/04/13/Vue简介/index.html" />
+        <link rel="canonical" href="https://blog.kingsongao.com/2016/04/13/Vue简介/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -282,7 +282,7 @@
             "url": "/favicon.ico"
         }
     },
-    "keywords": ",前端开发,VueHexo, Blog, kagawa, kagawagao",
+    "keywords": ",Vue,前端开发Hexo, Blog, kagawa, kagawagao",
     "description": "Vue项目地址: Github、官网
 作者:yyx990803",
 }
@@ -487,6 +487,7 @@
         <h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><p>项目地址: <a href="https://github.com/vuejs/vue" target="_blank" rel="noopener">Github</a>、<a href="vuejs.org">官网</a></p>
 <p>作者:<a href="https://github.com/yyx990803" target="_blank" rel="noopener">yyx990803</a></p>
 <a id="more"></a>
+
 <h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><ul>
 <li><a href="http://evanyou.me/" target="_blank" rel="noopener">个人网站</a></li>
 <li><a href="https://www.zhihu.com/people/evanyou" target="_blank" rel="noopener">知乎</a></li>
@@ -499,13 +500,11 @@
 <li>CDN: 可通过 <a href="http://cdn.jsdelivr.net/vue/1.0.20/vue.min.js" target="_blank" rel="noopener">jsdelivr</a> 或 <a href="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.20/vue.min.js" target="_blank" rel="noopener">cndjs</a> 获取</li>
 <li>NPM 版本</li>
 </ul>
-<pre><code class="bash">npm install vue
-</code></pre>
+<pre><code class="bash">npm install vue</code></pre>
 <ul>
 <li>Bower</li>
 </ul>
-<pre><code class="bash">bower install vue
-</code></pre>
+<pre><code class="bash">bower install vue</code></pre>
 <ul>
 <li>AMD:可直接使用上述版本</li>
 </ul>
@@ -522,8 +521,7 @@
 <h2 id="一个简单的Vue组件"><a href="#一个简单的Vue组件" class="headerlink" title="一个简单的Vue组件"></a>一个简单的Vue组件</h2><ul>
 <li><code>HTML</code>代码</li>
 </ul>
-<pre><code class="html">&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
-</code></pre>
+<pre><code class="html">&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;</code></pre>
 <ul>
 <li><code>JavaScript</code> 代码</li>
 </ul>
@@ -532,8 +530,7 @@
   data: {
     msg: &#39;Hello world&#39;
   }
-})
-</code></pre>
+})</code></pre>
 <h2 id="何谓数据驱动"><a href="#何谓数据驱动" class="headerlink" title="何谓数据驱动"></a>何谓数据驱动</h2><p>核心：</p>
 <ul>
 <li>相对于程序逻辑，人类更擅长于处理数据。</li>
@@ -573,7 +570,6 @@ if (msgType.hasOwnProperty(msg.type)) {
   console.log(&#39;我不知道你在说什么&#39;)
 }
 
-
 </code></pre>
 <h2 id="Vue-中的数据驱动"><a href="#Vue-中的数据驱动" class="headerlink" title="Vue 中的数据驱动"></a>Vue 中的数据驱动</h2><p><img src="http://vuejs.org.cn/images/mvvm.png" alt="data-drive"></p>
 <p>通过特殊的语法将<code>DOM</code>绑定到底层数据。一旦创建绑定，<code>DOM</code>将会同步数据的更新而更新</p>
@@ -585,8 +581,7 @@ if (msgType.hasOwnProperty(msg.type)) {
     &lt;app-sidebar&gt;&lt;/app-sidebar&gt;
     &lt;app-content&gt;&lt;/app-content&gt;
   &lt;/app-view&gt;
-&lt;/div&gt;
-</code></pre>
+&lt;/div&gt;</code></pre>
 <p>相对于<code>WebComponent</code>，UI库提供的组件化的优势：</p>
 <ul>
 <li>首先规范尚未完成且实现可能不一，而奇葩<code>IE</code>你不知道他该怎么办</li>
@@ -604,8 +599,7 @@ if (msgType.hasOwnProperty(msg.type)) {
 <li><p>新的Vue 实例</p>
 <pre><code class="javascript">  var vm = new Vue({
     // 选项
-  })
-</code></pre>
+  })</code></pre>
 </li>
 <li><p>可复用的组件</p>
 <pre><code class="javascript">var MyComponent = Vue.extend({
@@ -613,8 +607,7 @@ if (msgType.hasOwnProperty(msg.type)) {
 })
 
 // 所有的 `MyComponent` 实例都将以预定义的扩展选项被创建
-var myComponentInstance = new MyComponent()
-</code></pre>
+var myComponentInstance = new MyComponent()</code></pre>
 </li>
 </ul>
 <h3 id="属性和方法"><a href="#属性和方法" class="headerlink" title="属性和方法"></a>属性和方法</h3><p>  Vue实例会代理其<code>data</code>对象中在构建时所有的属性，而在后续新添加的则不会代理</p>
@@ -632,7 +625,6 @@ var myComponentInstance = new MyComponent()
   // ... 反之亦然
   data.a = 3
   vm.a // -&gt; 3
-
 </code></pre>
 <p>  除此之外，其他的一些方法和属性都会暴露出来，都带有<code>$</code>前缀。</p>
 <h3 id="生命周期函数"><a href="#生命周期函数" class="headerlink" title="生命周期函数"></a>生命周期函数</h3><p>实例化：</p>
@@ -655,8 +647,7 @@ var myComponentInstance = new MyComponent()
 </ul>
 <h3 id="开发单页应用？-路由是必须的"><a href="#开发单页应用？-路由是必须的" class="headerlink" title="开发单页应用？ 路由是必须的"></a>开发单页应用？ 路由是必须的</h3><p><a href="https://github.com/vuejs/vue-router" target="_blank" rel="noopener">vue-router</a></p>
 <p>安装：</p>
-<pre><code class="bash">npm install vue-router --save
-</code></pre>
+<pre><code class="bash">npm install vue-router --save</code></pre>
 <p>使用：</p>
 <ul>
 <li>HTML或Template</li>
@@ -666,15 +657,13 @@ var myComponentInstance = new MyComponent()
   &lt;router-view&gt;&lt;/router-view&gt;
 &lt;/div&gt;
 &lt;!--路由跳转--&gt;
-&lt;h2&gt;Go To &lt;a v-link=&quot;&quot;&gt;Demo0&lt;/a&gt;&lt;/h2&gt;
-</code></pre>
+&lt;h2&gt;Go To &lt;a v-link=&quot;&quot;&gt;Demo0&lt;/a&gt;&lt;/h2&gt;</code></pre>
 <ul>
 <li>加载插件</li>
 </ul>
 <pre><code class="javascript">import VueRouter from &#39;vue-router&#39;
 
-Vue.use(VueRouter)
-</code></pre>
+Vue.use(VueRouter)</code></pre>
 <ul>
 <li>启动路由</li>
 </ul>
@@ -683,7 +672,6 @@ import Router from &#39;./routes/index&#39;
 const App = Vue.extend({})
 
 Router.start(App, &#39;#app&#39;)
-
 </code></pre>
 <h3 id="需要像Flux一样管理数据？"><a href="#需要像Flux一样管理数据？" class="headerlink" title="需要像Flux一样管理数据？"></a>需要像<code>Flux</code>一样管理数据？</h3><p>官方根据<code>Flux</code>架构实现了一套为Vue所能使用： <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener"><code>Vux</code></a></p>
 <p>具体使用参见Demo</p>

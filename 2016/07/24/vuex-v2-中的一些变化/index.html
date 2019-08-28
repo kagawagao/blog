@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -52,14 +52,14 @@
     <link rel="icon shortcut" type="image/ico" href="/favicon.ico">
     <link rel="icon" href="/favicon.ico">
 
-    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="telephone=no">
     <meta name="description" itemprop="description" content="由于之前身体抱恙休假在家，于是对 vue/vuex 便没有多少关注，在上周回来投入到工作中时发现 vuex 2.0.0 相对于之前的版本有了部分变化，关于 vuex 最新版的设计在此 issue 中。">
-    <meta name="keywords" content="Hexo, Blog, kagawa, kagawagao,前端开发,Vue,Vuex">
+    <meta name="keywords" content="Hexo, Blog, kagawa, kagawagao,Vue,前端开发,Vuex">
     <meta name="theme-color" content="#03A9F4">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -223,7 +223,7 @@
     <link rel="apple-touch-icon" href="/favicon.ico">
 
     <!-- Site Verification -->
-    <meta name="google-site-verification" content="InY9uB5AcU-qvYvD3iW7iXSk3k1sHsPdeWVH049hz6" />
+    <meta name="google-site-verification" content="InY9uB5AcU-qvYvD3iW7iXSk3k1sHsPdeWVH049hz6">
     
 
     <!-- RSS -->
@@ -235,7 +235,7 @@
     <meta property="og:title" content="vuex v2 中的一些变化 | We love, and we do">
     <meta property="og:image" content="/favicon.ico">
     <meta property="og:description" content="由于之前身体抱恙休假在家，于是对 vue/vuex 便没有多少关注，在上周回来投入到工作中时发现 vuex 2.0.0 相对于之前的版本有了部分变化，关于 vuex 最新版的设计在此 issue 中。">
-    <meta property="og:article:tag" content="前端开发"> <meta property="og:article:tag" content="Vue"> <meta property="og:article:tag" content="Vuex"> 
+    <meta property="og:article:tag" content="Vue"> <meta property="og:article:tag" content="前端开发"> <meta property="og:article:tag" content="Vuex"> 
 
     
         <meta property="article:published_time" content="Sun Jul 24 2016 22:51:22 GMT+0800">
@@ -247,7 +247,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://blog.kingsongao.com/2016/07/24/vuex-v2-中的一些变化/index.html" />
+        <link rel="canonical" href="https://blog.kingsongao.com/2016/07/24/vuex-v2-中的一些变化/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -280,7 +280,7 @@
             "url": "/favicon.ico"
         }
     },
-    "keywords": ",前端开发,Vue,VuexHexo, Blog, kagawa, kagawagao",
+    "keywords": ",Vue,前端开发,VuexHexo, Blog, kagawa, kagawagao",
     "description": "由于之前身体抱恙休假在家，于是对 vue/vuex 便没有多少关注，在上周回来投入到工作中时发现 vuex 2.0.0 相对于之前的版本有了部分变化，关于 vuex 最新版的设计在此 issue 中。",
 }
 </script>
@@ -483,6 +483,7 @@
     
         <p>由于之前身体抱恙休假在家，于是对 <code>vue/vuex</code> 便没有多少关注，在上周回来投入到工作中时发现 <code>vuex</code> 2.0.0 相对于之前的版本有了部分变化，关于 <code>vuex</code> 最新版的设计在此 <a href="https://github.com/vuejs/vuex/issues/236" target="_blank" rel="noopener">issue</a> 中。</p>
 <a id="more"></a>
+
 <h2 id="命名语义化"><a href="#命名语义化" class="headerlink" title="命名语义化"></a>命名语义化</h2><hr>
 <p>首先就是针对命名的语义化，主要集中在两个名词上：<code>commit</code> 与 <code>dispatch</code>。</p>
 <p>之前的 <code>store.dispatch</code> 变成了现在的 <code>store.commit</code>，但是 <code>store.dispatch</code> 依然可用，但仅仅用来触发某些 <code>action</code>。</p>
@@ -505,8 +506,7 @@ actions: {
     commit(&#39;some-mutation&#39;, payload)
   }
 // dispatch
-store.dispatch(&#39;ACTION_TYPE&#39;)
-</code></pre>
+store.dispatch(&#39;ACTION_TYPE&#39;)</code></pre>
 <p>从上面的代码中我们可以看出，在 <code>vuex</code> 2.0.0 中，<code>commit</code> 用来说明一个使 <code>mutation</code> 状态发生改变的操作，而 <code>dispatch</code> 则用来触发一个 <code>action</code>。</p>
 <h2 id="模块的可移植性和可组合性"><a href="#模块的可移植性和可组合性" class="headerlink" title="模块的可移植性和可组合性"></a>模块的可移植性和可组合性</h2><hr>
 <h3 id="store-和-module-中的-action"><a href="#store-和-module-中的-action" class="headerlink" title="store 和 module 中的 action"></a><code>store</code> 和 <code>module</code> 中的 <code>action</code></h3><p>如果我们在模块内部定义 <code>actions</code> 时，如果多个模块定义相同名字的 <code>action</code> 时可能会产生部分问题，而且有的时候需要调用多个模块的 <code>action</code>，那么在这两种情况看来，如果我们把 <code>action</code> 定义为一个类似事件监听器的模式而不是直接调用它们，取而代之的是用 <code>store.dispatch</code> 去触发这个事件，这样的话我们就可以在一次调用中触发多个模块的 <code>action</code>，而且这种做法也能够明确的表明这个 <code>action</code> 所有可能产生的副作用。<br>例子：</p>
@@ -520,8 +520,7 @@ store.dispatch(&#39;ACTION_TYPE&#39;)
 // 你可以直接访问这个action
 console.log(store.actions.doSomething)
 // 触发这个action
-store.dispatch(&#39;doSomething&#39;)
-</code></pre>
+store.dispatch(&#39;doSomething&#39;)</code></pre>
 <p>与之类似的还有 <code>getters</code></p>
 <p>我们同样可以直接在 <code>store</code> 中定义，也可以在 <code>module</code> 内部定义<br>例子：</p>
 <pre><code class="javascript">const store = new Vuex.Store({
@@ -534,8 +533,7 @@ store.dispatch(&#39;doSomething&#39;)
 })
 
 // access the getter
-store.getters.hasAny // -&gt; false
-</code></pre>
+store.getters.hasAny // -&gt; false</code></pre>
 <h3 id="事件流可组合"><a href="#事件流可组合" class="headerlink" title="事件流可组合"></a>事件流可组合</h3><p>因为 <code>dispatch</code> 的存在，我们在需要一次操作触发多个 <code>action</code> 的情况下，那么事件流的可组合就会使得代码写起来游刃有余，尤其是结合 <code>Promise</code> 或者 <code>async/await</code>。比如我们有一个列表，在删除列表中的一项或多项之后，我们通常需要重新拉去一次列表或者将本地的列表数据重排，那么我们就可以在完成 <code>deleteItem</code> 之后通过 <code>store.dispatch</code> 来触发 <code>getList</code> 操作，与之形成对比的是，我们在 <code>Redux</code> 中所使用的 <code>redux-saga</code>。<br>例子：</p>
 <pre><code class="javascript">const store = new Vuex.Store({
   actions: {
@@ -555,8 +553,7 @@ store.getters.hasAny // -&gt; false
 store.dispatch(&#39;deleteItem&#39;, { id: 1 }).then(() =&gt; {
   // action done
   store.dispatch(getList, {page: 1})
-})
-</code></pre>
+})</code></pre>
 <pre><code class="javascript">// 结合 async/await
 const store = new Vuex.Store({
   actions: {
@@ -571,8 +568,7 @@ const store = new Vuex.Store({
   }
 })
 
-store.dispatch(&#39;two&#39;) // fires off complicated async flow
-</code></pre>
+store.dispatch(&#39;two&#39;) // fires off complicated async flow</code></pre>
 <p>从上面的两部分代码你可能发现了两种写法，实际上两种写法的效果是一样的，只是 <code>Promise.then()</code> 与 <code>async/await</code> 的区别</p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>出上面两个之外，<code>Vuex@2</code> 还提供了 <code>mapGetters</code> 和 <code>mapActions</code> 两个辅助函数，在之前的版本中，我们在一个组件内部使用 <code>getters</code> 和 <code>actions</code> 通常都是通过下面种方式：</p>
 <pre><code class="javascript">
@@ -585,16 +581,14 @@ export default {
 
     }
   }
-}
-</code></pre>
+}</code></pre>
 <p>那么在有这两个辅助函数之后我们只需要这样：</p>
 <pre><code class="javascript">import {mapActions, mapGetters} from &#39;vuex&#39;
 
 export default {
   computed: mapGetters([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]),
   methods: mapActions([&#39;doA&#39;, &#39;doB&#39;, &#39;doC&#39;])
-}
-</code></pre>
+}</code></pre>
 <p>当然就像我们在第二部分中提到的，你可以通过下面中方式</p>
 <pre><code class="javascript">export default {
   computed: {
@@ -607,8 +601,7 @@ export default {
       this.$store.dispatch(&#39;b&#39;)
     }
   }
-}
-</code></pre>
+}</code></pre>
 <p>更多使用方法，请查看这个<a href="https://github.com/vuejs/vuex/issues/236" target="_blank" rel="noopener">issue</a></p>
 <p>另外 <code>vuex@2</code> 可能会随着 <code>vue@2</code> 一起发布，目前都处在 <code>beta</code> 阶段，欢迎入坑！</p>
 

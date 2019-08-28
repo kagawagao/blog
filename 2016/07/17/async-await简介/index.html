@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -52,14 +52,14 @@
     <link rel="icon shortcut" type="image/ico" href="/favicon.ico">
     <link rel="icon" href="/favicon.ico">
 
-    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="telephone=no">
     <meta name="description" itemprop="description" content="WTF!!!ECMAScript 7 发布，竟然没有async/await［懵逼脸］。相较于generator，我更偏爱于async/await，我为此还将所有的promise.then和generator全改为async/await［再次懵逼］。">
     <meta name="keywords" content="Hexo, Blog, kagawa, kagawagao,前端开发,ES Next">
     <meta name="theme-color" content="#03A9F4">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -223,7 +223,7 @@
     <link rel="apple-touch-icon" href="/favicon.ico">
 
     <!-- Site Verification -->
-    <meta name="google-site-verification" content="InY9uB5AcU-qvYvD3iW7iXSk3k1sHsPdeWVH049hz6" />
+    <meta name="google-site-verification" content="InY9uB5AcU-qvYvD3iW7iXSk3k1sHsPdeWVH049hz6">
     
 
     <!-- RSS -->
@@ -247,7 +247,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://blog.kingsongao.com/2016/07/17/async-await简介/index.html" />
+        <link rel="canonical" href="https://blog.kingsongao.com/2016/07/17/async-await简介/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -483,6 +483,7 @@
     
         <h1 id="WTF"><a href="#WTF" class="headerlink" title="WTF!!!"></a>WTF!!!</h1><p>ECMAScript 7 发布，竟然没有<code>async/await</code>［懵逼脸］。相较于<code>generator</code>，我更偏爱于<code>async/await</code>，我为此还将所有的<code>promise.then</code>和<code>generator</code>全改为<code>async/await</code>［再次懵逼］。</p>
 <a id="more"></a>
+
 <h1 id="什么是async-await"><a href="#什么是async-await" class="headerlink" title="什么是async/await?"></a>什么是<code>async/await</code>?</h1><p><code>async/await</code>被定义在这个<a href="https://github.com/tc39/ecmascript-asyncawait" target="_blank" rel="noopener">仓库中</a>，相较于<code>generator</code>，我们利用<code>async/await</code>可以以看起来更为同步的方式写出异步代码，且可读性更高。比如：</p>
 <pre><code class="javascript">// 一个异步操作
 const asyncOp = () =&gt; new Promise((resolve, reject) =&gt; {
@@ -504,8 +505,7 @@ asyncFun()
 // 1
 // 2
 // true
-// 3
-</code></pre>
+// 3</code></pre>
 <p>从上面可以看出<code>async/await</code>的存在使得你可以等待await一个Promise的完成。这将以非阻塞的方式暂停这个函数的进行，并且等待Promise的resolve函数的执行并返回结果。如果Promise抛出异常，你可以通过catch去处理这个异常。</p>
 <p>而如果我们用<code>generator</code>的方式去写这部分异步操作我们会怎么写呢，请看代码：</p>
 <pre><code class="javascript">// generator 方式
@@ -523,8 +523,7 @@ demo.next()
 // 1
 // 2
 // Promise {[[PromiseStatus]]: &quot;resolved&quot;, [[PromiseValue]]: true}
-// 3
-</code></pre>
+// 3</code></pre>
 <p>我承认，我的写法需要改善，但是我真的不喜欢这种写法[这不是偏见！！！]，而且当<code>yield</code>之后返回的就是一个<code>Promise</code>，你还需要其他做一些其他操作再得到这个确切的返回结果。</p>
 <p>总之就是喜欢<code>async/await</code>，没有理由！</p>
 
